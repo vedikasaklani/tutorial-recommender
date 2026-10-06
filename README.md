@@ -2,6 +2,32 @@
 
 A backend-oriented project that processes PDF content and recommends relevant YouTube learning resources.
 
+## How to Run
+
+```
+python -m venv .venv
+.venv\Scripts\activate        # Windows; use `source .venv/bin/activate` on macOS/Linux
+pip install -r requirements.txt
+python -m spacy download en_core_web_md
+```
+
+Create a `.env` file in the project root with:
+
+```
+HF_TOKEN=your_hugging_face_token
+YOUTUBE_API_KEY=your_youtube_data_api_key
+```
+
+```
+python app.py
+```
+
+This serves a JSON API at `http://127.0.0.1:5000`:
+
+- `POST /recommend` — multipart form with a `pdf` file field, returns a JSON list of recommended videos.
+
+The frontend is a browser extension, not this Flask app: [extension/](extension/) for Chrome (side panel), [extension-firefox/](extension-firefox/) for Firefox (sidebar). Load either unpacked (`chrome://extensions` → Load unpacked, or `about:debugging` → Load Temporary Add-on for Firefox), open a PDF tab, then click the toolbar icon.
+
 ## Current Pipeline
 
 PDF  

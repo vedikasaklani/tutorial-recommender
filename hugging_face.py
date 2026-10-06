@@ -1,47 +1,51 @@
-from query_input import  dedup_ranked as ranked_chunks
+import logging
+
 from dotenv import load_dotenv
 import os, requests
-load_dotenv() 
-HF_TOKEN = os.getenv("HF_TOKEN") 
+load_dotenv()
+HF_TOKEN = os.getenv("HF_TOKEN")
 
-prompts=[]
+API_URL = "https://router.huggingface.co/v1/chat/completions"
 
-#making the query for youtube using gemma 
-for chunk in ranked_chunks:
+logger = logging.getLogger(__name__)
+
+
+#making the query for youtube using gemma
+def _build_prompt(chunk):
     prompt="Generate a relevant youtube query for given context and keywords\n"
     prompt+=f" Context: {chunk['chunk']}\n, Keywords:"
     for kw in chunk["keywords"]:
         prompt+=f" {kw["keyword"]}, "
     prompt+="\nReturn only the youtube query."
-    prompts.append(prompt)
+    return prompt
 
 
-API_URL = "https://router.huggingface.co/v1/chat/completions"
-headers = {
-    "Authorization": f"Bearer {os.environ['HF_TOKEN']}",
-}
-queries=[]
-for prompt in prompts:
-    def query(payload):
-        response = requests.post(API_URL, headers=headers, json=payload)
-        return response.json()
-
-    response = query({
-        "messages": [
-            {
-                "role": "user",
-                "content": [
+def generate_queries(ranked_chunks):
+    headers = {"Authorization": f"Bearer {HF_TOKEN}"}
+    queries=[]
+    for i, chunk in enumerate(ranked_chunks):
+        fallback = " ".join(kw["keyword"] for kw in chunk["keywords"])
+        try:
+            resp = requests.post(API_URL, headers=headers, json={
+                "messages": [
                     {
-                        "type": "text",
-                        "text": prompt
-                    },
-                ]
-            }
-        ],
-        "model": "google/gemma-4-31B-it:novita"
-    })
-    if "choices" in response:
-        queries.append(response["choices"][0]["message"]["content"])
-    else:  # ponytail: LLM unavailable (e.g. out of credits) -> plain keywords as the query
-        queries.append(" ".join(kw["keyword"] for kw in ranked_chunks[len(queries)]["keywords"]))
-
+                        "role": "user",
+                        "content": [
+                            {
+                                "type": "text",
+                                "text": _build_prompt(chunk)
+                            },
+                        ]
+                    }
+                ],
+                "model": "google/gemma-4-31B-it:novita"
+            }, timeout=90)
+            response = resp.json()
+            query = response["choices"][0]["message"]["content"] if "choices" in response else fallback
+        except (requests.RequestException, ValueError, KeyError) as e:
+            # ponytail: HF unreachable/slow/malformed -> plain keywords as the query
+            logger.warning("query %d/%d failed (%s); falling back to keywords", i + 1, len(ranked_chunks), e)
+            query = fallback
+        logger.debug("query %d/%d: %s", i + 1, len(ranked_chunks), query)
+        queries.append(query)
+    return queries

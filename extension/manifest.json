@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "PDF Recommender",
+  "version": "0.1.0",
+  "description": "Generates YouTube video recommendations for the PDF open in the current tab.",
+  "permissions": ["activeTab", "sidePanel", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "action": {},
+  "side_panel": {
+    "default_path": "panel.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

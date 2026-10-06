@@ -1,6 +1,10 @@
+import logging
+
 import numpy as np
-from pdf_Reader import global_keywords as keywords, nlp, chunk_data
+from pdf_Reader import nlp, extract_chunks
 from numpy.linalg import norm
+
+logger = logging.getLogger(__name__)
 
 #rank chunks also
 def rank_chunks(keywords, chunk_data):
@@ -19,7 +23,6 @@ def rank_chunks(keywords, chunk_data):
     
     ranked.sort(key=lambda x: x["score"], reverse=True)
     return ranked[:10]
-ranked=rank_chunks(keywords, chunk_data)
 
 def cosine_sim(a, b):
     return np.dot(a, b) / (norm(a) * norm(b) + 1e-8)
@@ -47,6 +50,15 @@ def semantic_dedup(ranked, nlp, threshold=0.9):
     
     return merged
 
-dedup_ranked=semantic_dedup(ranked, nlp)
+
+def get_dedup_ranked_chunks(pdf_source):
+    """Run the chunk/keyword extraction, ranking, and dedup stages for a PDF."""
+    chunk_data, keywords = extract_chunks(pdf_source)
+    logger.info("extracted %d chunks, %d unique keywords", len(chunk_data), len(keywords))
+    ranked = rank_chunks(keywords, chunk_data)
+    logger.debug("ranked top %d chunks", len(ranked))
+    deduped = semantic_dedup(ranked, nlp)
+    logger.info("%d chunks remain after semantic dedup", len(deduped))
+    return deduped
 
 

@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "PDF Recommender",
+  "version": "0.1.0",
+  "description": "Generates YouTube video recommendations for the PDF open in the current tab.",
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "action": {},
+  "sidebar_action": {
+    "default_panel": "panel.html",
+    "default_title": "PDF Recommender"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "pdf-recommender@local"
+    }
+  }
+}
