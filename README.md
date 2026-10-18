@@ -96,14 +96,41 @@ Generated queries are sent to the YouTube Data API. Results are pooled and dedup
 
 A light, offline eval lives in [eval/](eval/). It replays recorded runs, so it never calls an API. See [topics.md](topics.md) for the concepts behind it.
 
+### Structure
+
+```
+eval/
+  run.py          CLI: report, --export-judge, --draft-gold, --sweep, --sweep-rank, --bench
+  metrics.py      pure metric functions (topic coverage, diversity, query checks, filter replay, precision@5)
+  record.py       saves one live pipeline run as a fixture (used when EVAL_RECORD_DIR is set)
+  bench.py        one-off nlp() vs nlp.pipe timing; holds the legacy implementation as the baseline
+  fixtures/       recorded runs, one <pdf id>.json each: selected chunks, queries, YouTube candidates, returned videos (committed, used by CI)
+  pdfs/           the recorded PDFs (gitignored; needed only for --sweep and --bench)
+  gold.json       hand-labelled ground truth per pdf id: topics, relevant_video_ids
+  judgments.json  LLM-judge scores (1-5) per (chunk, query) pair, keyed by a hash
+```
+
+### What it measures
+
+| Stage | Metric | Needs |
+|---|---|---|
+| Chunk selection | topic coverage (exact / soft), diversity | `gold.json` topics |
+| Query generation | fallback rate, formatting artifacts, query-vs-chunk similarity, judge score | `judgments.json` for the judge score |
+| Video ranking | filter replay, rejection counts, precision@5 | `gold.json` relevant_video_ids |
+
+### Workflow
+
 ```
 EVAL_RECORD_DIR=eval python app.py   # then use the extension on a PDF: saves eval/fixtures/<id>.json and eval/pdfs/<id>.pdf
 python -m eval.run --draft-gold      # drafts topics into eval/gold.json - edit them
-python -m eval.run --export-judge    # pairs for an LLM judge; fill eval/judgments.json
-python -m eval.run                   # report: topic coverage, diversity, query checks, judge score, filter replay
+python -m eval.run --export-judge    # writes eval/to_judge.json; grade the pairs into eval/judgments.json
+python -m eval.run                   # report: coverage, diversity, query checks, judge score, filter replay, p@5
 python -m eval.run --sweep           # chunk size / scoring / dedup threshold (needs local PDFs)
+python -m eval.run --sweep-rank      # video-ranking weights vs precision@5
 python -m eval.run --bench           # nlp() vs nlp.pipe timing
 ```
+
+On Windows PowerShell, set the variable first: `$env:EVAL_RECORD_DIR = "eval"; python app.py`. CI runs `python -m eval.run` on the committed fixtures.
 
 ## Future Deliverables
 
