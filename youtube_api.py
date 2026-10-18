@@ -1,3 +1,4 @@
+import math
 import re
 import requests
 import os
@@ -70,30 +71,67 @@ def fetch_video_details(video_ids, api_key):
     return details
 
 
-def build_video_pool(queries, api_key, max_results=5):
-    """Search all queries, dedupe, filter out Shorts/low-view/non-English, rank by views."""
+def build_video_pool(queries, api_key, max_results=5, trace=None, topic=None):
+    """Search all queries, dedupe, filter out Shorts/low-view/non-English, rank by views.
+
+    trace: optional dict that receives the raw candidates/details (used to record eval fixtures)."""
     candidates = {}
     for query in queries:
-        for c in search_youtube(query, api_key, max_results=10):  # over-fetch, filtering will cut some
-            candidates.setdefault(c["video_id"], c)
+        for rank, c in enumerate(search_youtube(query, api_key, max_results=10)):  # over-fetch, filtering will cut some
+            candidates.setdefault(c["video_id"], {**c, "ranks": []})["ranks"].append(rank)  # YouTube's own order per query
 
     if not candidates:
         return []
     details = fetch_video_details(list(candidates.keys()), api_key)
+    if trace is not None:
+        trace.update(candidates=candidates, details=details)
+    return filter_and_rank(candidates, details, max_results, topic)
 
+
+_STOP = {"with", "from", "that", "this", "using", "into", "about", "their", "system", "systems",
+         "implementation", "design", "study", "report", "project"}
+
+
+def _topic_prefixes(topic):
+    """5-letter prefixes of the topic's words, so "balancer" also matches "balancing"."""
+    words = re.findall(r"[a-z]{4,}", (topic or "").lower())
+    return {w[:5] for w in words if w not in _STOP} | ({"http"} if "http" in (topic or "").lower() else set())
+
+
+def _relevance(video, prefixes):
+    tokens = re.findall(r"[a-z]+", f"{video['title']} {video['description']}".lower())
+    return sum(any(t.startswith(p) for t in tokens) for p in prefixes)
+
+
+# ponytail: hand-picked weights; tune with `python -m eval.run --sweep-rank` once fixtures have gold videos.
+W_SEARCH, W_TOPIC, W_VIEWS = 1.0, 1.0, 1.5
+
+
+def _score(video, prefixes, w_search, w_topic, w_views):
+    """Fuse relevance and popularity: YouTube's rank for each query that found the video
+    (1, 1/2, 1/3, ...; summed so multi-query hits win), topic-word overlap (0-1), and views
+    (log10 scaled to ~0-1 so 10M views is not 1000x better than 10k)."""
+    search = sum(1 / (r + 1) for r in video.get("ranks", []))
+    topic = _relevance(video, prefixes) / len(prefixes) if prefixes else 0
+    return w_search * search + w_topic * topic + w_views * math.log10(max(video["views"], 1)) / 7
+
+
+def filter_and_rank(candidates, details, max_results=5, topic=None, w_search=W_SEARCH, w_topic=W_TOPIC, w_views=W_VIEWS):
+    """Pure part of build_video_pool: no network, so it can be replayed from recorded data."""
     pool = []
     for video_id, c in candidates.items():
         item = details.get(video_id)
         if not item:
             continue
-        duration = _duration_seconds(item["contentDetails"]["duration"])
+        duration = _duration_seconds(item["contentDetails"].get("duration", ""))  # missing for premieres/live -> 0 -> filtered
         views = int(item["statistics"].get("viewCount", 0))
         if duration < MIN_DURATION_SECONDS or views < MIN_VIEW_COUNT or not _is_english(item["snippet"]):
             continue
-        pool.append({**c, "views": views})
+        pool.append({**c, "views": views})  # keeps "ranks" for scoring; stripped below
 
-    pool.sort(key=lambda c: c["views"], reverse=True)
-    return pool[:max_results]
+    prefixes = _topic_prefixes(topic)
+    pool.sort(key=lambda c: (_score(c, prefixes, w_search, w_topic, w_views), c["views"]), reverse=True)
+    return [{k: v for k, v in c.items() if k != "ranks"} for c in pool[:max_results]]
 
 
 def _demo():

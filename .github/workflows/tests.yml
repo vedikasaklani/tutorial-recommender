@@ -19,3 +19,4 @@ jobs:
       - run: pip install -r requirements.txt
       - run: python -m spacy download en_core_web_md
       - run: python -m pytest tests/ -v
+      - run: python -m eval.run  # offline, replays committed fixtures in eval/fixtures/

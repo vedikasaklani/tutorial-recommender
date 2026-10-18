@@ -16,6 +16,8 @@
 <body>
   <label for="backend">Backend URL</label>
   <input id="backend" type="text" placeholder="http://localhost:5000/recommend">
+  <label for="file">Local PDF (file://) - pick it here if the tab can't be read</label>
+  <input id="file" type="file" accept="application/pdf,.pdf">
   <button id="go">Get recommendations for this PDF</button>
   <div id="status"></div>
   <div id="results"></div>

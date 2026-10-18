@@ -65,21 +65,48 @@ def test_build_video_pool_filters_shorts_low_views_and_non_english(monkeypatch):
     assert [v["video_id"] for v in result] == ["ok"]
 
 
-def test_build_video_pool_ranks_by_views_and_caps_at_max_results(monkeypatch):
+def test_build_video_pool_ties_on_search_rank_fall_back_to_views_and_cap(monkeypatch):
     candidates = {
         "low": _video("low", views=1000),
         "high": _video("high", views=9000),
         "mid": _video("mid", views=5000),
     }
-
-    monkeypatch.setattr(yt, "search_youtube", lambda prompt, api_key, max_results=10: [c for c, _ in candidates.values()])
+    # one query per video, each ranked #1 for its own query -> equal search score, views decide
+    monkeypatch.setattr(yt, "search_youtube", lambda prompt, api_key, max_results=10: [candidates[prompt][0]])
     monkeypatch.setattr(yt, "fetch_video_details", lambda video_ids, api_key: {vid: d for vid, (_, d) in candidates.items()})
 
-    result = yt.build_video_pool(["query"], api_key="fake", max_results=2)
+    result = yt.build_video_pool(["low", "high", "mid"], api_key="fake", max_results=2)
 
     assert [v["video_id"] for v in result] == ["high", "mid"]
+
+
+def test_youtube_rank_and_multi_query_hits_beat_raw_views(monkeypatch):
+    popular, popular_d = _video("popular", views=900_000)
+    relevant, relevant_d = _video("relevant", views=20_000)
+    # "relevant" is #1 for both queries, "popular" only #5 for one of them
+    results = {"q1": [relevant, popular], "q2": [relevant]}
+    monkeypatch.setattr(yt, "search_youtube", lambda prompt, api_key, max_results=10: results[prompt])
+    monkeypatch.setattr(yt, "fetch_video_details", lambda ids, api_key: {"popular": popular_d, "relevant": relevant_d})
+
+    result = yt.build_video_pool(["q1", "q2"], api_key="fake")
+
+    assert [v["video_id"] for v in result] == ["relevant", "popular"]
+    assert "ranks" not in result[0]  # internal field is not leaked to the extension
 
 
 def test_build_video_pool_returns_empty_when_no_candidates(monkeypatch):
     monkeypatch.setattr(yt, "search_youtube", lambda prompt, api_key, max_results=10: [])
     assert yt.build_video_pool(["query"], api_key="fake") == []
+
+
+def test_topic_outranks_raw_views():
+    generic, generic_d = _video("generic", views=200_000)
+    on_topic, on_topic_d = _video("on_topic", views=2000)
+    generic["title"] = "10 Design Patterns Explained"
+    on_topic["title"] = "Load Balancing Algorithms Explained"
+    on_topic["description"] = "round robin vs least connections in a load balancer"
+    cands = {"generic": generic, "on_topic": on_topic}
+    details = {"generic": generic_d, "on_topic": on_topic_d}
+
+    assert [v["video_id"] for v in yt.filter_and_rank(cands, details, topic="multithreaded HTTP load balancer")] == ["on_topic", "generic"]
+    assert [v["video_id"] for v in yt.filter_and_rank(cands, details)] == ["generic", "on_topic"]  # no topic: views only

@@ -216,3 +216,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+eval/pdfs/
+eval/to_judge.json
+eval/report.json

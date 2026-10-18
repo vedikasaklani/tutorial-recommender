@@ -16,30 +16,34 @@ document.getElementById("go").addEventListener("click", async () => {
   resultsEl.innerHTML = "";
   const apiUrl = backendInput.value.trim() || DEFAULT_API_URL;
 
-  statusEl.textContent = "Reading current tab...";
-  let tab;
-  try {
-    [tab] = await browser.tabs.query({ active: true, currentWindow: true });
-  } catch (err) {
-    statusEl.textContent = `Could not read the current tab: ${err.message}`;
-    return;
-  }
-  if (!tab?.url || !tab.url.toLowerCase().includes(".pdf")) {
-    statusEl.textContent = "Open a PDF tab first.";
-    return;
-  }
+  // A PDF picked in the panel wins: Firefox won't let extensions fetch file:// URLs,
+  // but a file chosen through <input type=file> is readable without any permission.
+  let pdfBlob = document.getElementById("file").files[0];
+  if (!pdfBlob) {
+    statusEl.textContent = "Reading current tab...";
+    let tab;
+    try {
+      [tab] = await browser.tabs.query({ active: true, currentWindow: true });
+    } catch (err) {
+      statusEl.textContent = `Could not read the current tab: ${err.message}`;
+      return;
+    }
+    if (!tab?.url || !tab.url.toLowerCase().includes(".pdf")) {
+      statusEl.textContent = "Open a PDF tab, or pick a local PDF above.";
+      return;
+    }
 
-  statusEl.textContent = "Fetching the PDF...";
-  let pdfBlob;
-  try {
-    const pdfResp = await fetch(tab.url);
-    if (!pdfResp.ok) throw new Error(`server returned HTTP ${pdfResp.status}`);
-    pdfBlob = await pdfResp.blob();
-  } catch (err) {
-    statusEl.textContent =
-      `Could not fetch the PDF from ${tab.url}: ${err.message}\n` +
-      `Firefox does not allow extensions to fetch file:// URLs — serve the PDF over http(s) instead if this is a local file.`;
-    return;
+    statusEl.textContent = "Fetching the PDF...";
+    try {
+      const pdfResp = await fetch(tab.url);
+      if (!pdfResp.ok) throw new Error(`server returned HTTP ${pdfResp.status}`);
+      pdfBlob = await pdfResp.blob();
+    } catch (err) {
+      statusEl.textContent =
+        `Could not fetch the PDF from ${tab.url}: ${err.message}\n` +
+        `Firefox blocks file:// URLs for extensions - use "Local PDF" above to pick the file instead.`;
+      return;
+    }
   }
 
   statusEl.textContent = "Generating recommendations... this can take a minute.";

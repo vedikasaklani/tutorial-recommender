@@ -1,0 +1,53 @@
+{
+ "a9435f37": {
+  "_note": "os_report.pdf (multithreaded HTTP load balancer). Topics written from the report's section headings; edit as you see fit.",
+  "topics": [
+   "load balancer",
+   "round robin",
+   "least connections",
+   "thread pool",
+   "mutex locking shared state",
+   "health checks failover",
+   "overload back-pressure",
+   "blocking I/O",
+   "scheduling algorithm",
+   "concurrency",
+   "throughput",
+   "worker threads"
+  ],
+  "relevant_video_ids": [
+   "-dIdn8J2jws",
+   "1qEobRRFuIo",
+   "37sdnojPHOs",
+   "DuyrHAkNdaY",
+   "EoX_DGfwd7Q",
+   "P6Z5K8zmEmc",
+   "PmNOrh568Os",
+   "TavIqNcnwSA",
+   "USnb3E6mTeA",
+   "WnzgKwrrY0g",
+   "YM_dEeXmnuY",
+   "ZGt-cUy1HDE",
+   "ZcKt5FYd3bU",
+   "bRDz6H1h0Po",
+   "c0Ah-nNBTIU",
+   "dBmxNsS3BGE",
+   "eR0MzSs9O1w",
+   "fLs25FiLfJA",
+   "galcDRNd5Ow",
+   "k1YVM2q58-M",
+   "kgUrHoN8_u8",
+   "mswjnBHHd1M",
+   "oZFItaTq2oI",
+   "pd6C69lYHmc",
+   "qGxKtk3Y5tM",
+   "qtfSe6gco94",
+   "sCR3SAVdyCc",
+   "tWxv4GK_uk4",
+   "wX1WZfNyP-E",
+   "y0RLt73vyX8",
+   "ywZS0wx9PtE"
+  ],
+  "_video_note": "Labelled by Claude from titles only (load-balancer fundamentals, algorithms, multithreaded server). Vendor-specific (AWS/IBM), non-English and off-topic videos not counted. Edit freely."
+ }
+}

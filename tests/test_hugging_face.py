@@ -61,3 +61,16 @@ def test_generate_queries_falls_back_on_non_json_response(monkeypatch):
     queries = hf.generate_queries([_chunk()])
 
     assert queries == ["docker kubernetes"]
+
+
+def test_build_prompt_includes_document_topic_when_given():
+    assert "load balancer" in hf._build_prompt(_chunk(), topic="multithreaded load balancer")
+    assert "document about" not in hf._build_prompt(_chunk())
+
+
+def test_document_topic_falls_back_to_keywords_on_failure(monkeypatch):
+    def boom(*a, **k):
+        raise requests.exceptions.Timeout("slow")
+
+    monkeypatch.setattr(hf.requests, "post", boom)
+    assert hf.document_topic("some title page", ["load", "balancer", "thread", "pool"]) == "load balancer thread"

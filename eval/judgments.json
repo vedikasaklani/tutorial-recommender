@@ -1,0 +1,82 @@
+{
+ "38c8c022e5d0": {
+  "score": 4,
+  "reason": "Query names the chunk's main concept (adaptive load sharing); slightly academic but would find relevant lectures."
+ },
+ "4d40725969c3": {
+  "score": 1,
+  "reason": "Chunk is a table-header fragment with no teachable content; the query invents a generic I/O topic unrelated to the report."
+ },
+ "5f1f0e212134": {
+  "score": 3,
+  "reason": "On topic (connection limit, throughput) but misses the concept the chunk is about: overload handling / back-pressure."
+ },
+ "e5bbf16c219f": {
+  "score": 3,
+  "reason": "Gets concurrency but is vague; the chunk is about one mutex protecting shared backend state, which 'mutex locking shared state' would find."
+ },
+ "e688863da3d7": {
+  "score": 4,
+  "reason": "Names the chunk's concept (adaptive load sharing) and the subject; slightly academic."
+ },
+ "bf2de873d6f4": {
+  "score": 4,
+  "reason": "Routing policies is the chunk's idea; misses the queueing/finite-capacity angle but would find relevant material."
+ },
+ "1b90989f1b1e": {
+  "score": 3,
+  "reason": "Chunk covers thread scheduling, synchronization and producer-consumer; query only reflects scheduling."
+ },
+ "aa9f34624ad5": {
+  "score": 3,
+  "reason": "Chunk is a table fragment (RR vs Least Connection); query is sensible but could name the algorithms."
+ },
+ "77d34d2a13fc": {
+  "score": 3,
+  "reason": "Right concept (health checks) but awkward wording from the keywords; 'health checks in a load balancer' would search better."
+ },
+ "011ab1c9c1e0": {
+  "score": 4,
+  "reason": "Critical sections on shared backend state is exactly the chunk's concept."
+ },
+ "f879d38efa27": {
+  "score": 3,
+  "reason": "Chunk is the research-gap statement; 'thread management overhead' is a plausible but speculative reading."
+ },
+ "a02d8926552e": {
+  "score": 3,
+  "reason": "Chunk is a project summary so the query restates the subject; 'implementation' is filler but the search is still on topic."
+ },
+ "e03eca8735a4": {
+  "score": 4,
+  "reason": "Names adaptive load sharing plus the subject; slightly redundant wording but searches well."
+ },
+ "357aa2a585fa": {
+  "score": 2,
+  "reason": "Chunk is about queueing-based routing policies and finite capacity; 'thread pooling' is only mentioned in passing, so the query misses the concept."
+ },
+ "9683ffc9e05a": {
+  "score": 3,
+  "reason": "Chunk lists thread scheduling, synchronization and producer-consumer; query covers only scheduling."
+ },
+ "408289e12cca": {
+  "score": 5,
+  "reason": "Chunk is a table fragment, but the query names the exact algorithms being compared and is a common search."
+ },
+ "0d2b26c7b5b1": {
+  "score": 5,
+  "reason": "Health checks is the chunk's concept, in standard search wording."
+ },
+ "4567d09bdb3f": {
+  "score": 4,
+  "reason": "Right concept (critical sections on shared backend state); a little long and unusual as a search phrase."
+ },
+ "9f2e67e5e25a": {
+  "score": 2,
+  "reason": "Chunk is the research-gap statement; 'thread management' is a speculative reading of it."
+ },
+ "1a9f072aa370": {
+  "score": 4,
+  "reason": "Project-summary chunk; 'multithreaded load balancer' is a good search for an overview of the system."
+ }
+}

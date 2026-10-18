@@ -14,7 +14,7 @@ python -m spacy download en_core_web_md
 Create a `.env` file in the project root with:
 
 ```
-HF_TOKEN=your_hugging_face_token
+GROQ_API_KEY=your_groq_api_key
 YOUTUBE_API_KEY=your_youtube_data_api_key
 ```
 
@@ -78,49 +78,40 @@ A greedy semantic deduplication approach retains the higher-ranked chunk while a
 
 ### Query Generation
 
-Representative chunks and their keywords are sent to a Hugging Face model using HTTP API requests. The model generates concise, context-aware YouTube search queries.
+Representative chunks and their keywords are sent to an LLM (`openai/gpt-oss-20b` on Groq's OpenAI-compatible API). The model generates concise, context-aware YouTube search queries.
 
 ### YouTube Integration
 
-Generated queries are sent to the YouTube Data API. Search results are collected into a shared candidate pool and deduplicated using video IDs.
-
-Each candidate currently stores:
-
-- Video ID
-- Title
-- Description
-- YouTube link
+Generated queries are sent to the YouTube Data API. Results are pooled and deduplicated by video ID, then video details (duration, views, language) are fetched in batches. Shorts (<4 min), videos under 1,000 views and non-English videos are dropped, and the top 5 by view count are returned.
 
 ## Tech Stack
 
-- Python
-- PyPDF
-- spaCy
-- Hugging Face API
-- YouTube Data API
-- NumPy / Vector Similarity
-- Requests
-- Python Dotenv
+- Python, Flask (REST API)
+- PyPDF, spaCy (`nlp.pipe` batching for all NLP stages)
+- Groq LLM API, YouTube Data API
+- NumPy / vector similarity
+- Requests, Python Dotenv, Pytest
+
+## Evaluation
+
+A light, offline eval lives in [eval/](eval/). It replays recorded runs, so it never calls an API. See [topics.md](topics.md) for the concepts behind it.
+
+```
+EVAL_RECORD_DIR=eval python app.py   # then use the extension on a PDF: saves eval/fixtures/<id>.json and eval/pdfs/<id>.pdf
+python -m eval.run --draft-gold      # drafts topics into eval/gold.json - edit them
+python -m eval.run --export-judge    # pairs for an LLM judge; fill eval/judgments.json
+python -m eval.run                   # report: topic coverage, diversity, query checks, judge score, filter replay
+python -m eval.run --sweep           # chunk size / scoring / dedup threshold (needs local PDFs)
+python -m eval.run --bench           # nlp() vs nlp.pipe timing
+```
 
 ## Future Deliverables
 
-- Retrieve video statistics such as views, likes, and comments.
-- Filter and rank candidate videos based on relevance and engagement.
-- Return the final top 5 recommendations.
-- Integrate the pipeline into a FastAPI backend.
+- Rank videos by relevance to the query/chunk, not only view count.
+- Replace averaged word vectors with sentence embeddings for chunk deduplication.
 - Support recommendations from user-selected PDF content.
 - Add relevant website recommendations alongside YouTube videos.
 
 ## Status
 
-**Work in Progress**
-
-Current focus:
-
-Video Candidate Pool  
-↓  
-Fetch Video Statistics  
-↓  
-Filter and Rank Videos  
-↓  
-Return Top 5 Recommendations
+Working end to end (PDF -> chunks -> queries -> filtered top 5) behind a Flask API and a Chrome/Firefox extension.

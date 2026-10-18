@@ -1,0 +1,1989 @@
+{
+ "id": "9e3bfbe9",
+ "n_chunks": 106,
+ "global_top_keywords": [
+  "key = len",
+  "area official doc",
+  "group operator note",
+  "python distil effective",
+  "distil effective python",
+  "< score <",
+  "score > =",
+  "= value =",
+  "network hold byte",
+  "deep problem need",
+  "^ $ start",
+  "mean deeply constant",
+  "hold raw datum",
+  "take exponential time",
+  "official doc fluent",
+  "= = true",
+  "thing style example",
+  "unmatched exception keep",
+  "exception vs part",
+  "args extra positional",
+  "raw string keep",
+  "reverse = true",
+  "value = x",
+  "standard function accept",
+  "vs equal value",
+  "outer container share",
+  "function accept path",
+  "flag = =",
+  "list + =",
+  "use characteristic pitfall"
+ ],
+ "ranked": [
+  {
+   "chunk": "Text vs raw data\nfloat  vs Decimal Fast binary approximation vs exact decimal\nread()  vs iterating a file Whole file in memory vs one line at a time\nexcept  vs except* One exception vs parts of a group\nMutating vs rebinding Change the object vs point the name elsewhere\nWhere to read more\nRESOURCES\nTopic area Official docs Fluent Python, 2nd ed.Python Distilled Effective Python\nSyntax, types,\noperators\nTutorial: informal\nintro, Built-in\ntypes\nCh. 1 (data model) Python Basics;\nOperators, Expressions,\nand Data Manipulation\nPythonic Thinking\nStrings, bytes,\nencodings\nText sequence\ntypes,Unicode\nHOWTO\nCh. 4 Objects, Types, and\nProtocols\nStrings and Slicing\nCollections,\ncopies,\nmutability\nData structures,\ncopy\nCh. 2, 3, 6 Objects, Types, and\nProtocols\nDictionaries;\nComprehensions and\nGenerators\nControl flow,\nmatch\nMore control flow Ch. 2 (pattern matching),\nCh. 18\nProgram Structure and\nControl Flow\nLoops and Iterators\nFunctions and\nscope\nDefining\nfunctions,\nExecution model\nCh. 7, 9 Functions Functions\n",
+   "score": 6.011665105819702
+  },
+  {
+   "chunk": "Only the first true branch runs\nConditional expression:value_if_true if cond else value_if_false\nEXAMPLE\nscore = 72\nif score >= 90:\n    grade = \"A\"\nelif score >= 70:\n    grade = \"B\"\nelse:\n    grade = \"C\"\nlabel = \"pass\" if score >= 40 else \"fail\"\n0 < score < 100            # True (chained comparison)\nPITFALLS\nif x = 3:  is a SyntaxError .Use == , or :=  when you mean assignment\nDo not write if flag == True .",
+   "score": 3.44101083278656
+  },
+  {
+   "chunk": "try:\n    value = config[key]\nexcept KeyError:\n    value = default\nUSE\nPrefer EAFP when a check can go stale before the action, such as \"file exists, then open it\", or when\nfailure is rare\nPrefer LBYL, or dict.get , when failure is common and the check is cheap\nCONTRAST: EAFP VS LBYL\nEAFP LBYL\nStyle try  / except if  check first\nRace conditions Safe Possible\nCost when it fails Exception overhead One cheap check\nQuick reference\nKey terms and distinctions\nCONFUSED PAIRS\nPair Difference\nis  vs == Same object vs equal value\n/  vs // True division (float) vs floor division\nappend  vs extend Add one item vs add every item of an iterable\nlist.sort()  vs sorted() In place, returns None  vs new list\nfind  vs index -1  vs ValueError\nremove  vs pop  vs del Remove by value vs by index and return it vs by index or slice\nsearch  vs match  vs fullmatchAnywhere vs start vs whole string\nShallow vs deep copy New outer container vs fully independent copy\n*args  vs **kwargs Tuple of positionals vs dict of keywords\nglobal  vs nonlocal Module scope vs enclosing function scope\nstr  vs bytes",
+   "score": 3.022900402545929
+  },
+  {
+   "chunk": "It needs a base case that stops, and a step that moves toward it\nEXAMPLE\ndef factorial(n):\n    return 1 if n <= 1 else n * factorial(n - 1)\nfrom functools import cache\n@cache\ndef fib(n):\n    return n if n < 2 else fib(n - 1) + fib(n - 2)\nfactorial(5), fib(50)          # (120, 12586269025)\nPITFALLS\nThe default limit is 1000 frames ( sys.getrecursionlimit() ).Beyond it, RecursionError\nPython does not optimize tail calls.Deep problems need a loop or an explicit stack\nWithout caching, fib  repeats work and takes exponential time.",
+   "score": 2.9961934685707092
+  },
+  {
+   "chunk": "< <= > >= Chains: 0 < x < 10\nIdentity is , is not Same object\nMembership in , not in O(1) average for set  and dict , O(n) for list\nLogical and , or , not Short-circuit.and  and or  return one of their operands\nBitwise & , | , ^ , ~ , << , >>On ints\nAugmented += , -= , *=  and so on list += x  mutates in place\nWalrus := Assigns inside an expression\nPrecedence, high to low: ** , unary - , * / // % , + - , shifts, & , ^ , | , comparisons, not ,\nand , or\nUse parentheses when in doubt.",
+   "score": 2.930092751979828
+  },
+  {
+   "chunk": "Use None  and create the list inside\nCalling with a missing or extra argument raises TypeError\nAnnotations such as def f(x: int) -> str  are hints and are not enforced at run time\nCONTRAST:*args  VS **kwargs\n*args **kwargs\nCollects Positional values Named values\nType inside tuple dict\nAt call site f(*items)  unpacks a list f(**opts)  unpacks a dict\nScope\nDEFINITION\nPython looks up a name through four scopes in order: Local, Enclosing, Global, Built-in (LEGB)\nPython looks a name up in Local, Enclosing, Global, then Built-in scope\nBuilt-in len, print, range, ValueError\nGlobal names defined at the top level of the module\nEnclosing names in an outer function, reached with nonlocal\nLocal parameters and names assigned inside this function\nOrder searched: Local, Enclosing, Global, Built-in\nThe lookup runs from the inside out and stops at the first hit.",
+   "score": 2.916628658771515
+  },
+  {
+   "chunk": "In place, returns None , stable\nOther methods: extend , remove  (first match), index , count , reverse , copy , clear\nsorted(a, key=len, reverse=True)  returns a new list and takes any iterable\nEXAMPLE\na=[3, 1, 2]\na.append(4)                     ",
+   "score": 2.573259472846985
+  },
+  {
+   "chunk": "Most standard functions accept Path  directly\nText encodings\nDEFINITION\nstr  holds Unicode code points.Files and networks hold bytes.An encoding maps one to the other\nUTF-8 is the standard choice.",
+   "score": 2.467783272266388
+  }
+ ],
+ "selected": [
+  {
+   "chunk": "Text vs raw data\nfloat  vs Decimal Fast binary approximation vs exact decimal\nread()  vs iterating a file Whole file in memory vs one line at a time\nexcept  vs except* One exception vs parts of a group\nMutating vs rebinding Change the object vs point the name elsewhere\nWhere to read more\nRESOURCES\nTopic area Official docs Fluent Python, 2nd ed.Python Distilled Effective Python\nSyntax, types,\noperators\nTutorial: informal\nintro, Built-in\ntypes\nCh. 1 (data model) Python Basics;\nOperators, Expressions,\nand Data Manipulation\nPythonic Thinking\nStrings, bytes,\nencodings\nText sequence\ntypes,Unicode\nHOWTO\nCh. 4 Objects, Types, and\nProtocols\nStrings and Slicing\nCollections,\ncopies,\nmutability\nData structures,\ncopy\nCh. 2, 3, 6 Objects, Types, and\nProtocols\nDictionaries;\nComprehensions and\nGenerators\nControl flow,\nmatch\nMore control flow Ch. 2 (pattern matching),\nCh. 18\nProgram Structure and\nControl Flow\nLoops and Iterators\nFunctions and\nscope\nDefining\nfunctions,\nExecution model\nCh. 7, 9 Functions Functions\n",
+   "score": 6.011665105819702,
+   "keywords": [
+    {
+     "keyword": "exception vs part",
+     "score": 0.808159589767456,
+     "freq": 1
+    },
+    {
+     "keyword": "area official doc",
+     "score": 0.7656950354576111,
+     "freq": 1
+    },
+    {
+     "keyword": "python distil effective",
+     "score": 0.6864199042320251,
+     "freq": 1
+    },
+    {
+     "keyword": "distil effective python",
+     "score": 0.6864199042320251,
+     "freq": 1
+    },
+    {
+     "keyword": "control flow ch",
+     "score": 0.7150418758392334,
+     "freq": 1
+    }
+   ]
+  },
+  {
+   "chunk": "Only the first true branch runs\nConditional expression:value_if_true if cond else value_if_false\nEXAMPLE\nscore = 72\nif score >= 90:\n    grade = \"A\"\nelif score >= 70:\n    grade = \"B\"\nelse:\n    grade = \"C\"\nlabel = \"pass\" if score >= 40 else \"fail\"\n0 < score < 100            # True (chained comparison)\nPITFALLS\nif x = 3:  is a SyntaxError .Use == , or :=  when you mean assignment\nDo not write if flag == True .",
+   "score": 3.44101083278656,
+   "keywords": [
+    {
+     "keyword": "< score <",
+     "score": 0.9245017766952515,
+     "freq": 1
+    },
+    {
+     "keyword": "score > =",
+     "score": 0.9245017766952515,
+     "freq": 1
+    },
+    {
+     "keyword": "= = true",
+     "score": 0.8220711946487427,
+     "freq": 1
+    },
+    {
+     "keyword": "flag = =",
+     "score": 0.7699360847473145,
+     "freq": 1
+    }
+   ]
+  },
+  {
+   "chunk": "try:\n    value = config[key]\nexcept KeyError:\n    value = default\nUSE\nPrefer EAFP when a check can go stale before the action, such as \"file exists, then open it\", or when\nfailure is rare\nPrefer LBYL, or dict.get , when failure is common and the check is cheap\nCONTRAST: EAFP VS LBYL\nEAFP LBYL\nStyle try  / except if  check first\nRace conditions Safe Possible\nCost when it fails Exception overhead One cheap check\nQuick reference\nKey terms and distinctions\nCONFUSED PAIRS\nPair Difference\nis  vs == Same object vs equal value\n/  vs // True division (float) vs floor division\nappend  vs extend Add one item vs add every item of an iterable\nlist.sort()  vs sorted() In place, returns None  vs new list\nfind  vs index -1  vs ValueError\nremove  vs pop  vs del Remove by value vs by index and return it vs by index or slice\nsearch  vs match  vs fullmatchAnywhere vs start vs whole string\nShallow vs deep copy New outer container vs fully independent copy\n*args  vs **kwargs Tuple of positionals vs dict of keywords\nglobal  vs nonlocal Module scope vs enclosing function scope\nstr  vs bytes",
+   "score": 3.022900402545929,
+   "keywords": [
+    {
+     "keyword": "vs equal value",
+     "score": 0.7804883122444153,
+     "freq": 1
+    },
+    {
+     "keyword": "object vs equal",
+     "score": 0.7592892050743103,
+     "freq": 1
+    },
+    {
+     "keyword": "module scope vs",
+     "score": 0.7527936100959778,
+     "freq": 1
+    },
+    {
+     "keyword": "vs enclose function",
+     "score": 0.7303292751312256,
+     "freq": 1
+    }
+   ]
+  },
+  {
+   "chunk": "It needs a base case that stops, and a step that moves toward it\nEXAMPLE\ndef factorial(n):\n    return 1 if n <= 1 else n * factorial(n - 1)\nfrom functools import cache\n@cache\ndef fib(n):\n    return n if n < 2 else fib(n - 1) + fib(n - 2)\nfactorial(5), fib(50)          # (120, 12586269025)\nPITFALLS\nThe default limit is 1000 frames ( sys.getrecursionlimit() ).Beyond it, RecursionError\nPython does not optimize tail calls.Deep problems need a loop or an explicit stack\nWithout caching, fib  repeats work and takes exponential time.",
+   "score": 2.9961934685707092,
+   "keywords": [
+    {
+     "keyword": "n < =",
+     "score": 0.6392421722412109,
+     "freq": 1
+    },
+    {
+     "keyword": "optimize tail call",
+     "score": 0.6846536993980408,
+     "freq": 1
+    },
+    {
+     "keyword": "deep problem need",
+     "score": 0.8474332094192505,
+     "freq": 1
+    },
+    {
+     "keyword": "take exponential time",
+     "score": 0.824864387512207,
+     "freq": 1
+    }
+   ]
+  },
+  {
+   "chunk": "< <= > >= Chains: 0 < x < 10\nIdentity is , is not Same object\nMembership in , not in O(1) average for set  and dict , O(n) for list\nLogical and , or , not Short-circuit.and  and or  return one of their operands\nBitwise & , | , ^ , ~ , << , >>On ints\nAugmented += , -= , *=  and so on list += x  mutates in place\nWalrus := Assigns inside an expression\nPrecedence, high to low: ** , unary - , * / // % , + - , shifts, & , ^ , | , comparisons, not ,\nand , or\nUse parentheses when in doubt.",
+   "score": 2.930092751979828,
+   "keywords": [
+    {
+     "keyword": "> > =",
+     "score": 0.703062117099762,
+     "freq": 1
+    },
+    {
+     "keyword": "< < =",
+     "score": 0.703062117099762,
+     "freq": 1
+    },
+    {
+     "keyword": "list + =",
+     "score": 0.7636582851409912,
+     "freq": 1
+    },
+    {
+     "keyword": "augment + =",
+     "score": 0.7603102326393127,
+     "freq": 1
+    }
+   ]
+  },
+  {
+   "chunk": "Use None  and create the list inside\nCalling with a missing or extra argument raises TypeError\nAnnotations such as def f(x: int) -> str  are hints and are not enforced at run time\nCONTRAST:*args  VS **kwargs\n*args **kwargs\nCollects Positional values Named values\nType inside tuple dict\nAt call site f(*items)  unpacks a list f(**opts)  unpacks a dict\nScope\nDEFINITION\nPython looks up a name through four scopes in order: Local, Enclosing, Global, Built-in (LEGB)\nPython looks a name up in Local, Enclosing, Global, then Built-in scope\nBuilt-in len, print, range, ValueError\nGlobal names defined at the top level of the module\nEnclosing names in an outer function, reached with nonlocal\nLocal parameters and names assigned inside this function\nOrder searched: Local, Enclosing, Global, Built-in\nThe lookup runs from the inside out and stops at the first hit.",
+   "score": 2.916628658771515,
+   "keywords": [
+    {
+     "keyword": "extra argument raise",
+     "score": 0.6453530788421631,
+     "freq": 1
+    },
+    {
+     "keyword": "positional value name",
+     "score": 0.6387760639190674,
+     "freq": 1
+    },
+    {
+     "keyword": "collect positional value",
+     "score": 0.6069757342338562,
+     "freq": 1
+    },
+    {
+     "keyword": "name assign inside",
+     "score": 0.5238761305809021,
+     "freq": 1
+    },
+    {
+     "keyword": "global name define",
+     "score": 0.5016476511955261,
+     "freq": 1
+    }
+   ]
+  },
+  {
+   "chunk": "In place, returns None , stable\nOther methods: extend , remove  (first match), index , count , reverse , copy , clear\nsorted(a, key=len, reverse=True)  returns a new list and takes any iterable\nEXAMPLE\na=[3, 1, 2]\na.append(4)                     ",
+   "score": 2.573259472846985,
+   "keywords": [
+    {
+     "keyword": "reverse = true",
+     "score": 0.7975366115570068,
+     "freq": 1
+    },
+    {
+     "keyword": "key = len",
+     "score": 0.6137914657592773,
+     "freq": 1
+    }
+   ]
+  },
+  {
+   "chunk": "Most standard functions accept Path  directly\nText encodings\nDEFINITION\nstr  holds Unicode code points.Files and networks hold bytes.An encoding maps one to the other\nUTF-8 is the standard choice.",
+   "score": 2.467783272266388,
+   "keywords": [
+    {
+     "keyword": "standard function accept",
+     "score": 0.7819373607635498,
+     "freq": 1
+    },
+    {
+     "keyword": "function accept path",
+     "score": 0.7744234800338745,
+     "freq": 1
+    },
+    {
+     "keyword": "network hold byte",
+     "score": 0.9114224314689636,
+     "freq": 1
+    }
+   ]
+  }
+ ],
+ "topic": "Python core fundamentals",
+ "queries": [
+  "Python core fundamentals",
+  "ternary operator python",
+  "EAFP vs LBYL Python",
+  "Recursion limit Python",
+  "Python operator precedence",
+  "Python function arguments",
+  "list methods Python",
+  "text encodings Python"
+ ],
+ "candidates": {
+  "q3AuP01daL4": {
+   "video_id": "q3AuP01daL4",
+   "title": "Python Full Course for Beginners",
+   "description": "Get Placement Ready & learn from the best No.1 Online Tech Placement Batches : https://linktr.ee/apnacollege.in Python Notes ...",
+   "link": "https://www.youtube.com/watch?v=q3AuP01daL4",
+   "ranks": [
+    0
+   ]
+  },
+  "gbYLsUngzLc": {
+   "video_id": "gbYLsUngzLc",
+   "title": "Top 10 Most Important Python Functions You Must Know! 🚀 | Python Tutorial for Beginners",
+   "description": "In this video, we'll explore the most important Python functions every beginner and intermediate programmer must know! From ...",
+   "link": "https://www.youtube.com/watch?v=gbYLsUngzLc",
+   "ranks": [
+    1
+   ]
+  },
+  "Gx5qb1uHss4": {
+   "video_id": "Gx5qb1uHss4",
+   "title": "10 Important Python Concepts In 20 Minutes",
+   "description": "In today's video we are going to be learning about 10 important Python concepts. ▷ Become job-ready with Python: ...",
+   "link": "https://www.youtube.com/watch?v=Gx5qb1uHss4",
+   "ranks": [
+    2
+   ]
+  },
+  "vLqTf2b6GZw": {
+   "video_id": "vLqTf2b6GZw",
+   "title": "Python Tutorial for Beginners | Learn Python in 1.5 Hours",
+   "description": "This video is made with a lot of love from Apna College ❤️ Are you worried about placements/internships? Want to prepare for ...",
+   "link": "https://www.youtube.com/watch?v=vLqTf2b6GZw",
+   "ranks": [
+    3
+   ]
+  },
+  "PNSIWjWAA7o": {
+   "video_id": "PNSIWjWAA7o",
+   "title": "All Python Syntax in 25 Minutes – Tutorial",
+   "description": "This is the fastest way to learn almost all of Python syntax. Since this course moves quickly it may be helpful to have at least some ...",
+   "link": "https://www.youtube.com/watch?v=PNSIWjWAA7o",
+   "ranks": [
+    4
+   ]
+  },
+  "Ro_MScTDfU4": {
+   "video_id": "Ro_MScTDfU4",
+   "title": "Learn Python in Only 30 Minutes (Beginner Tutorial)",
+   "description": "In this video I'm going to be teaching you the core concepts that you need to know to get started with using Python. ▷ Become ...",
+   "link": "https://www.youtube.com/watch?v=Ro_MScTDfU4",
+   "ranks": [
+    5
+   ]
+  },
+  "XV-lIaO00H8": {
+   "video_id": "XV-lIaO00H8",
+   "title": "Complete Python Learning RoadMap (A to Z)",
+   "description": "How to start learning Python Language ? How to learn Python Faster & resources for learning. Python Playlist (complete) ...",
+   "link": "https://www.youtube.com/watch?v=XV-lIaO00H8",
+   "ranks": [
+    6
+   ]
+  },
+  "GfWRxr1OBm4": {
+   "video_id": "GfWRxr1OBm4",
+   "title": "Python Basics: The Best Way to Learn Python Programming (2024)",
+   "description": "Python Basics: The Best Way to Learn Python Programming (2024) @monuinstitute Some of you asked me about Python ...",
+   "link": "https://www.youtube.com/watch?v=GfWRxr1OBm4",
+   "ranks": [
+    7
+   ]
+  },
+  "fr1f84rg4Nw": {
+   "video_id": "fr1f84rg4Nw",
+   "title": "15 Minute Python Tutorial For Beginners In Hindi (Full &amp; Complete Python Crash Course)",
+   "description": "Python Udemy Course: https://goharry.in/python Get this course at 90% Discount if you use this link Source Code ...",
+   "link": "https://www.youtube.com/watch?v=fr1f84rg4Nw",
+   "ranks": [
+    8
+   ]
+  },
+  "IfKlGhRc7Dc": {
+   "video_id": "IfKlGhRc7Dc",
+   "title": "Python Roadmap for Beginners! 🐍 Learn Python Programming Step-by-Step&quot; #python #conding",
+   "description": "Python Roadmap for Beginners! Learn Python Programming Step-by-Step\" @MissionAdda4 #codingtutorial #pythonroadmap ...",
+   "link": "https://www.youtube.com/watch?v=IfKlGhRc7Dc",
+   "ranks": [
+    9
+   ]
+  },
+  "58tl3YTpF1w": {
+   "video_id": "58tl3YTpF1w",
+   "title": "What is a Ternary Operator in Python",
+   "description": "What is a Ternary Operator in Python, and why is it called ternary in the first place? In this video, we break down Python's ternary ...",
+   "link": "https://www.youtube.com/watch?v=58tl3YTpF1w",
+   "ranks": [
+    0
+   ]
+  },
+  "acAHVWpYt4A": {
+   "video_id": "acAHVWpYt4A",
+   "title": "Ternary Operator | Ternary Python | Python Full Course in Hindi #73",
+   "description": "Welcome to the Python Postmortem Series ⏩ Python Full Course ...",
+   "link": "https://www.youtube.com/watch?v=acAHVWpYt4A",
+   "ranks": [
+    1
+   ]
+  },
+  "zjwhh2MEa0Q": {
+   "video_id": "zjwhh2MEa0Q",
+   "title": "Python&#39;s ternary operator",
+   "description": "It's not so hidden! Yes, like nearly every modern programming language Python also has a ternary operator, although it doesn't ...",
+   "link": "https://www.youtube.com/watch?v=zjwhh2MEa0Q",
+   "ranks": [
+    2
+   ]
+  },
+  "m4QiELIPsLk": {
+   "video_id": "m4QiELIPsLk",
+   "title": "Python Conditional Expressions using the Ternary Operator - Python Code Example - APPFICIAL",
+   "description": "A conditional expression, also called the ternary operator, lets you execute an if else statement in one line of code if condition: ...",
+   "link": "https://www.youtube.com/watch?v=m4QiELIPsLk",
+   "ranks": [
+    3
+   ]
+  },
+  "FJ0kcFTyWWM": {
+   "video_id": "FJ0kcFTyWWM",
+   "title": "What is the Ternary Operator in Python? #python #coding #programming",
+   "description": "What is a ternary operator in Python? In this video we will learn about this short hand technique for writing the if-else statement in ...",
+   "link": "https://www.youtube.com/watch?v=FJ0kcFTyWWM",
+   "ranks": [
+    4
+   ]
+  },
+  "6yvE52P2cBQ": {
+   "video_id": "6yvE52P2cBQ",
+   "title": "Ternary Operator | Python Mastery Ep-24 | code io - Tamil",
+   "description": "In this video from the series of Python Mastery, we learn about Ternary Operator. Join THE SQUAD on Discord ...",
+   "link": "https://www.youtube.com/watch?v=6yvE52P2cBQ",
+   "ranks": [
+    5
+   ]
+  },
+  "5txQWTcCZ24": {
+   "video_id": "5txQWTcCZ24",
+   "title": "Ternary Operator or Short Hand If Else in Python | [Part 23] Python Tutorial for Beginners in Hindi",
+   "description": "python #tutorial #hindi #programming Python tutorial for Beginners in Hindi In this video you will learn about Ternary Operator or ...",
+   "link": "https://www.youtube.com/watch?v=5txQWTcCZ24",
+   "ranks": [
+    6
+   ]
+  },
+  "HpEjHEWozFA": {
+   "video_id": "HpEjHEWozFA",
+   "title": "Python Tutorial || Python Operators :  Ternary Operator Part - 1 || by Durga Sir",
+   "description": "Python Tutorial ||ajava python python python by durgasofta python videos by durgasoft Python Online Training Learn Python ...",
+   "link": "https://www.youtube.com/watch?v=HpEjHEWozFA",
+   "ranks": [
+    7
+   ]
+  },
+  "eA9nfBkfb2I": {
+   "video_id": "eA9nfBkfb2I",
+   "title": "Ternary Operator - Python Tips and Tricks #4",
+   "description": "Today we learn about a special way of using if-statements in Python - the ternary operator.",
+   "link": "https://www.youtube.com/watch?v=eA9nfBkfb2I",
+   "ranks": [
+    8
+   ]
+  },
+  "0V1pNV1ubW4": {
+   "video_id": "0V1pNV1ubW4",
+   "title": "What Is Ternary Operator? | Compare Ternary Operator In Java And Python | Python Interview Ques - 11",
+   "description": "pythoninterview #pythoninonevideo #pythoninterviewquestions What Is An Ternary Operator In Python? Python Ternary ...",
+   "link": "https://www.youtube.com/watch?v=0V1pNV1ubW4",
+   "ranks": [
+    9
+   ]
+  },
+  "ZoTx-s4F0Pg": {
+   "video_id": "ZoTx-s4F0Pg",
+   "title": "2 Python Error Handling Styles: LYBL vs EAFP",
+   "description": "Learn 2 python error handling styles with try except or if in python, that every developer should know. This python tutorial video ...",
+   "link": "https://www.youtube.com/watch?v=ZoTx-s4F0Pg",
+   "ranks": [
+    0
+   ]
+  },
+  "t_CdmyB4wZY": {
+   "video_id": "t_CdmyB4wZY",
+   "title": "Error Handling in Python: EAFP vs LBYL - which code style is more Pythonic? #Shorts",
+   "description": "Are you a Python programmer wondering which error handling approach to use in your code? In this Short, I explore the \"easier to ...",
+   "link": "https://www.youtube.com/watch?v=t_CdmyB4wZY",
+   "ranks": [
+    1
+   ]
+  },
+  "onP_IyOn_gM": {
+   "video_id": "onP_IyOn_gM",
+   "title": "EAFP vs LBYL - Python for Beginners",
+   "description": "EAFP vs LBYL - part of Python for Beginners. Short, clear Python lessons - one concept at a time. In this lesson: - Use try and ...",
+   "link": "https://www.youtube.com/watch?v=onP_IyOn_gM",
+   "ranks": [
+    2
+   ]
+  },
+  "gSffFYZnZGo": {
+   "video_id": "gSffFYZnZGo",
+   "title": "Understanding Python code philosophies — EAFP vs. LBYL  #coding #programmingtricks #pythontricks",
+   "description": "In this YouTube Shorts video, we break down one of Python's core philosophies—EAFP vs. LBYL! Discover why the “Easier to Ask ...",
+   "link": "https://www.youtube.com/watch?v=gSffFYZnZGo",
+   "ranks": [
+    3
+   ]
+  },
+  "PS7OX_cBNvA": {
+   "video_id": "PS7OX_cBNvA",
+   "title": "Python - EAFP vs LBYL",
+   "description": "In this video I am going to show you the difference between two core python concepts and what they mean, namely the look ...",
+   "link": "https://www.youtube.com/watch?v=PS7OX_cBNvA",
+   "ranks": [
+    4
+   ]
+  },
+  "i1c7-2Ykgik": {
+   "video_id": "i1c7-2Ykgik",
+   "title": "Defensive Programming in Python — EAFP vs LBYL | Python Course Module 6, Topic 6",
+   "description": "Defensive Programming in Python — EAFP vs LBYL This lesson is part of a full Python Basics to Advanced course — Module 6: ...",
+   "link": "https://www.youtube.com/watch?v=i1c7-2Ykgik",
+   "ranks": [
+    5
+   ]
+  },
+  "jXTHwJt1hB0": {
+   "video_id": "jXTHwJt1hB0",
+   "title": "Compare EAFP and LBYL in Python, to ask for forgiveness or permission?",
+   "description": "Compare EAFP and LBYL in Python, to ask for forgiveness or permission?",
+   "link": "https://www.youtube.com/watch?v=jXTHwJt1hB0",
+   "ranks": [
+    6
+   ]
+  },
+  "zOY4-tk6b-w": {
+   "video_id": "zOY4-tk6b-w",
+   "title": "EAFP vs LBYL: The Python Way #python",
+   "description": "Welcome to Python to Job — your fast-track roadmap from complete beginner to job-ready Python developer! ✓ 100% ...",
+   "link": "https://www.youtube.com/watch?v=zOY4-tk6b-w",
+   "ranks": [
+    7
+   ]
+  },
+  "TotBLX6rQw8": {
+   "video_id": "TotBLX6rQw8",
+   "title": "Handling or Preventing Errors in Python: LBYL vs EAFP - Getting Started &amp; Choosing a Style",
+   "description": "This is a preview of the video course, \"Handling or Preventing Errors in Python: LBYL vs EAFP.\" Dealing with errors and ...",
+   "link": "https://www.youtube.com/watch?v=TotBLX6rQw8",
+   "ranks": [
+    8
+   ]
+  },
+  "k7mWfeRo5LE": {
+   "video_id": "k7mWfeRo5LE",
+   "title": "Python for Beginners - 036 | Errors and Exception in Python | LBYL and EAFP Approach of Programming",
+   "description": "Welcome to AI Ki Pathshala!** In this enlightening video, we dive deep into the world of Error and Exception handling in Python ...",
+   "link": "https://www.youtube.com/watch?v=k7mWfeRo5LE",
+   "ranks": [
+    9
+   ]
+  },
+  "1dUpHL5Yg8E": {
+   "video_id": "1dUpHL5Yg8E",
+   "title": "Getting around the recursion limit",
+   "description": "Get rid of recursion with this trick! Recursion is great, an extremely useful tool to have a mastery of. However, recursion is limited ...",
+   "link": "https://www.youtube.com/watch?v=1dUpHL5Yg8E",
+   "ranks": [
+    0
+   ]
+  },
+  "XkL3SUioNvo": {
+   "video_id": "XkL3SUioNvo",
+   "title": "#40 Python Tutorial for Beginners | Recursion",
+   "description": "Check out our courses: Agentic AI Engineering with Python : https://go.telusko.com/agentic-ai-python Coupon: TELUSKO10 (10% ...",
+   "link": "https://www.youtube.com/watch?v=XkL3SUioNvo",
+   "ranks": [
+    1
+   ]
+  },
+  "hRqsb5rfCUM": {
+   "video_id": "hRqsb5rfCUM",
+   "title": "8. Recursion in python | Chai aur DSA",
+   "description": "Check out https://chaicode.com Welcome to chai aur code, a coding/programming dedicated channel in Hindi language. Now you ...",
+   "link": "https://www.youtube.com/watch?v=hRqsb5rfCUM",
+   "ranks": [
+    2
+   ]
+  },
+  "6jTCJ16SxO0": {
+   "video_id": "6jTCJ16SxO0",
+   "title": "Python&#39;s Recursion Limit — 1000 frames max! #shorts #python",
+   "description": "Every call pushes a frame onto the call stack. But Python has a hard limit: 1000 frames. What happens when a function calls itself ...",
+   "link": "https://www.youtube.com/watch?v=6jTCJ16SxO0",
+   "ranks": [
+    3
+   ]
+  },
+  "cNvZK0Wyoik": {
+   "video_id": "cNvZK0Wyoik",
+   "title": "Recursion using Python | Recursion with examples | Memoization",
+   "description": "This tutorial explores the concept of recursion, providing clear examples to deepen your understanding. Discover the elegance of ...",
+   "link": "https://www.youtube.com/watch?v=cNvZK0Wyoik",
+   "ranks": [
+    4
+   ]
+  },
+  "VBblRmvICSY": {
+   "video_id": "VBblRmvICSY",
+   "title": "How to Set recursion limit in python",
+   "description": "This sys module provides access to some variables used or maintained by the interpreter and to functions that interact strongly ...",
+   "link": "https://www.youtube.com/watch?v=VBblRmvICSY",
+   "ranks": [
+    5
+   ]
+  },
+  "vGqt9j18_kY": {
+   "video_id": "vGqt9j18_kY",
+   "title": "Recursion in Python | 32",
+   "description": "In this video, we'll understand the concept of recursion in Python in a simple and easy way. Then, we'll see how a function calls ...",
+   "link": "https://www.youtube.com/watch?v=vGqt9j18_kY",
+   "ranks": [
+    6
+   ]
+  },
+  "IxTjRw43SZg": {
+   "video_id": "IxTjRw43SZg",
+   "title": "How to Get the current value of the recursion limit in Python",
+   "description": "http://www.t3so.com.",
+   "link": "https://www.youtube.com/watch?v=IxTjRw43SZg",
+   "ranks": [
+    7
+   ]
+  },
+  "OvTH-7ESoRA": {
+   "video_id": "OvTH-7ESoRA",
+   "title": "Lecture 6 : Functions &amp; Recursion in Python | Python Full Course",
+   "description": "This lecture was made with a lot of love❤️ Download Notes : https://dsa.apnacollege.in/studymaterial/python ✨ Instagram ...",
+   "link": "https://www.youtube.com/watch?v=OvTH-7ESoRA",
+   "ranks": [
+    8
+   ]
+  },
+  "zor9x-FiUPY": {
+   "video_id": "zor9x-FiUPY",
+   "title": "LangGraph #10: Loops and the recursion limit #langgraph #python",
+   "description": "LangGraph #10: Loops and the recursion limit This video addresses the challenge of creating iterative workflows in LangGraph, ...",
+   "link": "https://www.youtube.com/watch?v=zor9x-FiUPY",
+   "ranks": [
+    9
+   ]
+  },
+  "3HKdkws6YxQ": {
+   "video_id": "3HKdkws6YxQ",
+   "title": "Lec-9: Operators in Python 🐍 Precedence &amp; Associativity with examples | Python for Beginners",
+   "description": "Master Python operators with ease! In this video, Varun sir will break down operators in Python, explain their precedence and ...",
+   "link": "https://www.youtube.com/watch?v=3HKdkws6YxQ",
+   "ranks": [
+    0
+   ]
+  },
+  "i2i8YkFyLVs": {
+   "video_id": "i2i8YkFyLVs",
+   "title": "Precedence and Associativity of Arithmetic Operators",
+   "description": "Python Programming: Precedence and Associativity of Arithmetic Operators Topics discussed: 1. Precedence of Arithmetic ...",
+   "link": "https://www.youtube.com/watch?v=i2i8YkFyLVs",
+   "ranks": [
+    1
+   ]
+  },
+  "cj7udLFALEY": {
+   "video_id": "cj7udLFALEY",
+   "title": "Operator Precedence in Python | 10th Computer - Chapter 3 - Lec 11",
+   "description": "",
+   "link": "https://www.youtube.com/watch?v=cj7udLFALEY",
+   "ranks": [
+    2
+   ]
+  },
+  "VawPFE7-wSs": {
+   "video_id": "VawPFE7-wSs",
+   "title": "Questions of Operator Precedence | Class 11,12 Computer Science with Python",
+   "description": "Operators in Python https://www.youtube.com/watch?v=t88gipr_Sso Join this channel to get access to perks: ...",
+   "link": "https://www.youtube.com/watch?v=VawPFE7-wSs",
+   "ranks": [
+    3
+   ]
+  },
+  "LZAeQYm4MPo": {
+   "video_id": "LZAeQYm4MPo",
+   "title": "Operator precedence in Python",
+   "description": "In this video, you will get all answers about Operator precedence in Python Connect us and never miss an update: ...",
+   "link": "https://www.youtube.com/watch?v=LZAeQYm4MPo",
+   "ranks": [
+    4
+   ]
+  },
+  "5T8-ZWISjRM": {
+   "video_id": "5T8-ZWISjRM",
+   "title": "Operator precedence in python in hindi urdu | 10th class computer new book 2026",
+   "description": "Operators precedence in python arithmetic operators in python comparison operators in python Logical operators in python ...",
+   "link": "https://www.youtube.com/watch?v=5T8-ZWISjRM",
+   "ranks": [
+    5
+   ]
+  },
+  "7kIYMU1tmGk": {
+   "video_id": "7kIYMU1tmGk",
+   "title": "OPERATOR PRECEDENCE || EVALUATE EXPRESSION || PYTHON",
+   "description": "NANDINI_DAS Evaluate the following expressions: a) 6 * 3 + 4**2 // 5 – 8 6 * 3 + 16 // 5 – 8 18+3-8 13 CLASS 12 COMPUTER ...",
+   "link": "https://www.youtube.com/watch?v=7kIYMU1tmGk",
+   "ranks": [
+    6
+   ]
+  },
+  "jEpOxquTtmI": {
+   "video_id": "jEpOxquTtmI",
+   "title": "OPERATOR PRECEDENCE in Python in Telugu | #python #telugu",
+   "description": "Modulo Division (in Arithmetic Operators) : https://youtu.be/-7q1exyUpSY Relational Operators Video Link ...",
+   "link": "https://www.youtube.com/watch?v=jEpOxquTtmI",
+   "ranks": [
+    7
+   ]
+  },
+  "0ZgrIHWT5go": {
+   "video_id": "0ZgrIHWT5go",
+   "title": "Precedence of Operators in Python in Tamil | Problem Solving and Python Programming in Tamil Unit 2",
+   "description": "",
+   "link": "https://www.youtube.com/watch?v=0ZgrIHWT5go",
+   "ranks": [
+    8
+   ]
+  },
+  "bHpxdn1VdYk": {
+   "video_id": "bHpxdn1VdYk",
+   "title": "Python Operator Precedence Explained in 30 Seconds",
+   "description": "Not all operations in Python happen left to right — some have higher priority. In this short, we break down how operator ...",
+   "link": "https://www.youtube.com/watch?v=bHpxdn1VdYk",
+   "ranks": [
+    9
+   ]
+  },
+  "0d6b6fFuCkE": {
+   "video_id": "0d6b6fFuCkE",
+   "title": "Function Arguments in Python | Python Tutorial - Day #21",
+   "description": "Python is one of the most demanded programming languages in the job market. Surprisingly, it is equally easy to learn and master ...",
+   "link": "https://www.youtube.com/watch?v=0d6b6fFuCkE",
+   "ranks": [
+    0
+   ]
+  },
+  "ijXMGpoMkhQ": {
+   "video_id": "ijXMGpoMkhQ",
+   "title": "#33 Python Tutorial for Beginners | Function Arguments in Python",
+   "description": "Check out our courses: Agentic AI Engineering with Python : https://go.telusko.com/agentic-ai-python Coupon: TELUSKO10 (10% ...",
+   "link": "https://www.youtube.com/watch?v=ijXMGpoMkhQ",
+   "ranks": [
+    1
+   ]
+  },
+  "OCbSteqZsKQ": {
+   "video_id": "OCbSteqZsKQ",
+   "title": "Types of Arguments in Python | Python Tutorials for Beginners #lec61",
+   "description": "In this lecture, we have discussed types of function arguments in python : 1. Default Arguments 2. Positional Arguments 3.",
+   "link": "https://www.youtube.com/watch?v=OCbSteqZsKQ",
+   "ranks": [
+    2
+   ]
+  },
+  "eci9iU_s6Ag": {
+   "video_id": "eci9iU_s6Ag",
+   "title": "#34 Python Tutorial for Beginners | Types of Arguments in Python",
+   "description": "Check out our courses: Agentic AI Engineering with Python : https://go.telusko.com/agentic-ai-python Coupon: TELUSKO10 (10% ...",
+   "link": "https://www.youtube.com/watch?v=eci9iU_s6Ag",
+   "ranks": [
+    3
+   ]
+  },
+  "uY8QPE0dcSs": {
+   "video_id": "uY8QPE0dcSs",
+   "title": "Functions with Arguments in Python | Parameters vs Arguments | Python Tutorials for Beginners #lec60",
+   "description": "In this lecture we have discussed: - How to define Functions with Arguments in Python - Calling of Functions with arguments ...",
+   "link": "https://www.youtube.com/watch?v=uY8QPE0dcSs",
+   "ranks": [
+    4
+   ]
+  },
+  "Gf-Ws2cXEuA": {
+   "video_id": "Gf-Ws2cXEuA",
+   "title": "Python Arguments in Functions (Positional, Keywords &amp; Default Arguments) #13",
+   "description": "In Python, you can define a function that takes variable number of arguments. Want to learn Python, the right way? Get my ...",
+   "link": "https://www.youtube.com/watch?v=Gf-Ws2cXEuA",
+   "ranks": [
+    5
+   ]
+  },
+  "BuAp27fbLVg": {
+   "video_id": "BuAp27fbLVg",
+   "title": "Arguments in Function Python | 29",
+   "description": "In this video, we'll explore function arguments in Python and see how to make functions more flexible by passing different types of ...",
+   "link": "https://www.youtube.com/watch?v=BuAp27fbLVg",
+   "ranks": [
+    6
+   ]
+  },
+  "AuFbqBLx1jI": {
+   "video_id": "AuFbqBLx1jI",
+   "title": "Function Arguments | Python Tutorial in Hindi 11",
+   "description": "Function Arguments in Python - 11 ⭐Python Tutorial Playlist: ...",
+   "link": "https://www.youtube.com/watch?v=AuFbqBLx1jI",
+   "ranks": [
+    7
+   ]
+  },
+  "PBnKt1Iz6E0": {
+   "video_id": "PBnKt1Iz6E0",
+   "title": "Types of arguments in python|Lecture-22|Keyword Argument|Default Argument|Variable length argument",
+   "description": "Hello Friends ! Most Welcome in my IT Channel SPT999.(O Level, CCC, DCA, ADCA, PGDCA)This Channel is specialized for ...",
+   "link": "https://www.youtube.com/watch?v=PBnKt1Iz6E0",
+   "ranks": [
+    8
+   ]
+  },
+  "Gd2O4tAf6r0": {
+   "video_id": "Gd2O4tAf6r0",
+   "title": "Function Arguments in Python | Amit Thinks",
+   "description": "In this video, we will learn Function Arguments in Python. The following are the types of Function Arguments: Required arguments, ...",
+   "link": "https://www.youtube.com/watch?v=Gd2O4tAf6r0",
+   "ranks": [
+    9
+   ]
+  },
+  "n4orr02dEvw": {
+   "video_id": "n4orr02dEvw",
+   "title": "List in Python | Python Tutorials in Telugu | List Methods in Telugu | List Slicing in Telugu",
+   "description": "Click Here for Python Course in Telugu https://pythonlife.in/python-course-in-telugu.html Telegram: ...",
+   "link": "https://www.youtube.com/watch?v=n4orr02dEvw",
+   "ranks": [
+    0
+   ]
+  },
+  "0yySumZTxJ0": {
+   "video_id": "0yySumZTxJ0",
+   "title": "ALL 11 LIST METHODS IN PYTHON EXPLAINED",
+   "description": "Every list method in Python explained in a single video! Did you know all of them? Let me know in the comment section :) Learn ...",
+   "link": "https://www.youtube.com/watch?v=0yySumZTxJ0",
+   "ranks": [
+    1
+   ]
+  },
+  "1tnFQDo05hQ": {
+   "video_id": "1tnFQDo05hQ",
+   "title": "P_32 List in Python and List Functions | Python Tutorials for Beginners",
+   "description": "Wanna prepare for Tech Placements & Internships? Join my new Batch of “Mastering DSA with Java Course 3.0” ...",
+   "link": "https://www.youtube.com/watch?v=1tnFQDo05hQ",
+   "ranks": [
+    2
+   ]
+  },
+  "9OeznAkyQz4": {
+   "video_id": "9OeznAkyQz4",
+   "title": "How to Use Lists in Python",
+   "description": "How to use lists in Python. Learn Python basics with this Python tutorial for beginners. Subscribe for more Python tutorials like ...",
+   "link": "https://www.youtube.com/watch?v=9OeznAkyQz4",
+   "ranks": [
+    3
+   ]
+  },
+  "gOMW_n2-2Mw": {
+   "video_id": "gOMW_n2-2Mw",
+   "title": "Python lists, sets, and tuples explained 🍍",
+   "description": "python #tutorial #course Python list set tuple tutorial example explained 00:00:00 intro 00:00:49 list 00:09:40 set 00:12:40 tuple ...",
+   "link": "https://www.youtube.com/watch?v=gOMW_n2-2Mw",
+   "ranks": [
+    4
+   ]
+  },
+  "8-RDVWGktuI": {
+   "video_id": "8-RDVWGktuI",
+   "title": "LIST METHODS - PYTHON PROGRAMMING",
+   "description": "Subscribe https://www.youtube.com/@sundeepsaradhi?sub_confirmation=1 ...",
+   "link": "https://www.youtube.com/watch?v=8-RDVWGktuI",
+   "ranks": [
+    5
+   ]
+  },
+  "scWc3F8LbOo": {
+   "video_id": "scWc3F8LbOo",
+   "title": "List Methods in Python | Python Tutorial - Day #23",
+   "description": "Python is one of the most demanded programming languages in the job market. Surprisingly, it is equally easy to learn and master ...",
+   "link": "https://www.youtube.com/watch?v=scWc3F8LbOo",
+   "ranks": [
+    6
+   ]
+  },
+  "Eaz5e6M8tL4": {
+   "video_id": "Eaz5e6M8tL4",
+   "title": "#5 Python Tutorial for Beginners | List in Python",
+   "description": "Check out our courses: Agentic AI with Java : Live Cohort : https://go.telusko.com/agentic-ai-with-java-cohort Coupon: ...",
+   "link": "https://www.youtube.com/watch?v=Eaz5e6M8tL4",
+   "ranks": [
+    7
+   ]
+  },
+  "Icw4cLTtKh4": {
+   "video_id": "Icw4cLTtKh4",
+   "title": "Lec-20: Python Lists &amp; Accessing from List with examples | Python for Beginners",
+   "description": "What are Lists in Python? Why we use Lists in Python? How to Access data from Lists? Everything is explained in this video with ...",
+   "link": "https://www.youtube.com/watch?v=Icw4cLTtKh4",
+   "ranks": [
+    8
+   ]
+  },
+  "FUEzZ-O1AhA": {
+   "video_id": "FUEzZ-O1AhA",
+   "title": "All Python List Methods in 12 Minutes",
+   "description": "Join my Python Masterclass - https://www.zerotoknowing.com/join-now Join my Python Newsletter ...",
+   "link": "https://www.youtube.com/watch?v=FUEzZ-O1AhA",
+   "ranks": [
+    9
+   ]
+  },
+  "ut74oHojxqo": {
+   "video_id": "ut74oHojxqo",
+   "title": "Unicode, in friendly terms: ASCII, UTF-8, code points, character encodings, and more",
+   "description": "Ever been bit by a Unicode bug? Maybe you weren't treating UTF-8 encoded data correctly, or tried to read it as ASCII? Maybe ...",
+   "link": "https://www.youtube.com/watch?v=ut74oHojxqo",
+   "ranks": [
+    0
+   ]
+  },
+  "B1k_sxOSgv8": {
+   "video_id": "B1k_sxOSgv8",
+   "title": "Encode and Decode Strings - Leetcode 271 - Python",
+   "description": "https://neetcode.io/ - A better way to prepare for Coding Interviews Problem Link: ...",
+   "link": "https://www.youtube.com/watch?v=B1k_sxOSgv8",
+   "ranks": [
+    1
+   ]
+  },
+  "ls-177DIGao": {
+   "video_id": "ls-177DIGao",
+   "title": "Bytes and encodings in Python",
+   "description": "Can Python automatically figure out which encoding to use from bytes? In this video, I a question from reader Patrik. Want to ...",
+   "link": "https://www.youtube.com/watch?v=ls-177DIGao",
+   "ranks": [
+    2
+   ]
+  },
+  "4dkyoymvFng": {
+   "video_id": "4dkyoymvFng",
+   "title": "#8 Python🐍 Program for Interview Preparation | Encode &amp; Decode a String | Python Programming",
+   "description": "MASTER COMPUTER SCIENCE | INTERVIEWS | EXAMS Gate Smashers — Learn Computer Science through free lectures, ...",
+   "link": "https://www.youtube.com/watch?v=4dkyoymvFng",
+   "ranks": [
+    3
+   ]
+  },
+  "EimoZHDcQMA": {
+   "video_id": "EimoZHDcQMA",
+   "title": "str vs bytes in Python",
+   "description": "strings vs. bytes, what's the diff? Strings and bytes are both fundamental types in Python. At a surface level they also appear do be ...",
+   "link": "https://www.youtube.com/watch?v=EimoZHDcQMA",
+   "ranks": [
+    4
+   ]
+  },
+  "7dWeVvk9_uM": {
+   "video_id": "7dWeVvk9_uM",
+   "title": "Python - Different character encodings",
+   "description": "Understanding Text Encodings in Python | UTF-8, UTF-16, ASCII, Latin-1, Shift_JIS & More Description: Ever wondered why some ...",
+   "link": "https://www.youtube.com/watch?v=7dWeVvk9_uM",
+   "ranks": [
+    5
+   ]
+  },
+  "Pr9F-ujaC7c": {
+   "video_id": "Pr9F-ujaC7c",
+   "title": "Convert Text to ASCII Code using Python in 30 Seconds! 🔤💻 #Shorts",
+   "description": "Convert Text to ASCII Code using Python in 30 Seconds! #Shorts Learn how to convert any text into ASCII codes using a ...",
+   "link": "https://www.youtube.com/watch?v=Pr9F-ujaC7c",
+   "ranks": [
+    6
+   ]
+  },
+  "MPuLPt9e4HQ": {
+   "video_id": "MPuLPt9e4HQ",
+   "title": "Python Word Encoding | #python, #programming #technology #encoding",
+   "description": "This encodes letters as numbers and prints a word from the encoded letters... Can you guess the word?",
+   "link": "https://www.youtube.com/watch?v=MPuLPt9e4HQ",
+   "ranks": [
+    7
+   ]
+  },
+  "lPied7jsfkQ": {
+   "video_id": "lPied7jsfkQ",
+   "title": "Encoding Schemes | ASCII, ISCII &amp; Unicode | CBSE Class XI",
+   "description": "MASTER COMPUTER SCIENCE | INTERVIEWS | EXAMS Gate Smashers — Learn Computer Science through free lectures, ...",
+   "link": "https://www.youtube.com/watch?v=lPied7jsfkQ",
+   "ranks": [
+    8
+   ]
+  },
+  "Ns9JtMGh0WI": {
+   "video_id": "Ns9JtMGh0WI",
+   "title": "Handling File Encoding Errors in Python 🚀 | Fix UnicodeDecodeError Easily",
+   "description": "Handling File Encoding Errors in Python | Fix UnicodeDecodeError Getting a UnicodeDecodeError while reading a file in ...",
+   "link": "https://www.youtube.com/watch?v=Ns9JtMGh0WI",
+   "ranks": [
+    9
+   ]
+  }
+ },
+ "details": {
+  "q3AuP01daL4": {
+   "contentDetails": {
+    "duration": "PT2H2M33S"
+   },
+   "statistics": {
+    "viewCount": "1764841"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "en"
+   }
+  },
+  "gbYLsUngzLc": {
+   "contentDetails": {
+    "duration": "PT6S"
+   },
+   "statistics": {
+    "viewCount": "1311779"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "ur",
+    "defaultLanguage": "en-GB"
+   }
+  },
+  "Gx5qb1uHss4": {
+   "contentDetails": {
+    "duration": "PT18M49S"
+   },
+   "statistics": {
+    "viewCount": "1674186"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-GB",
+    "defaultLanguage": "en-GB"
+   }
+  },
+  "vLqTf2b6GZw": {
+   "contentDetails": {
+    "duration": "PT1H17M12S"
+   },
+   "statistics": {
+    "viewCount": "12299085"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "PNSIWjWAA7o": {
+   "contentDetails": {
+    "duration": "PT24M59S"
+   },
+   "statistics": {
+    "viewCount": "406422"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en-US"
+   }
+  },
+  "Ro_MScTDfU4": {
+   "contentDetails": {
+    "duration": "PT30M42S"
+   },
+   "statistics": {
+    "viewCount": "1304849"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-GB",
+    "defaultLanguage": "en-GB"
+   }
+  },
+  "XV-lIaO00H8": {
+   "contentDetails": {
+    "duration": "PT13M43S"
+   },
+   "statistics": {
+    "viewCount": "1224132"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "en"
+   }
+  },
+  "GfWRxr1OBm4": {
+   "contentDetails": {
+    "duration": "PT9S"
+   },
+   "statistics": {
+    "viewCount": "3375837"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "en-IN"
+   }
+  },
+  "fr1f84rg4Nw": {
+   "contentDetails": {
+    "duration": "PT17M37S"
+   },
+   "statistics": {
+    "viewCount": "2487744"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "en"
+   }
+  },
+  "IfKlGhRc7Dc": {
+   "contentDetails": {
+    "duration": "PT5S"
+   },
+   "statistics": {
+    "viewCount": "3651636"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "hi"
+   }
+  },
+  "58tl3YTpF1w": {
+   "contentDetails": {
+    "duration": "PT3M36S"
+   },
+   "statistics": {
+    "viewCount": "178"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-US",
+    "defaultLanguage": "en-US"
+   }
+  },
+  "acAHVWpYt4A": {
+   "contentDetails": {
+    "duration": "PT8M3S"
+   },
+   "statistics": {
+    "viewCount": "2710"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "zjwhh2MEa0Q": {
+   "contentDetails": {
+    "duration": "PT2M59S"
+   },
+   "statistics": {
+    "viewCount": "43585"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "m4QiELIPsLk": {
+   "contentDetails": {
+    "duration": "PT4M16S"
+   },
+   "statistics": {
+    "viewCount": "4701"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "FJ0kcFTyWWM": {
+   "contentDetails": {
+    "duration": "PT58S"
+   },
+   "statistics": {
+    "viewCount": "2476"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "6yvE52P2cBQ": {
+   "contentDetails": {
+    "duration": "PT3M15S"
+   },
+   "statistics": {
+    "viewCount": "8369"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "ta",
+    "defaultLanguage": "en"
+   }
+  },
+  "5txQWTcCZ24": {
+   "contentDetails": {
+    "duration": "PT3M5S"
+   },
+   "statistics": {
+    "viewCount": "2781"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "en"
+   }
+  },
+  "HpEjHEWozFA": {
+   "contentDetails": {
+    "duration": "PT13M22S"
+   },
+   "statistics": {
+    "viewCount": "6534"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "eA9nfBkfb2I": {
+   "contentDetails": {
+    "duration": "PT7M7S"
+   },
+   "statistics": {
+    "viewCount": "12123"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "0V1pNV1ubW4": {
+   "contentDetails": {
+    "duration": "PT6M"
+   },
+   "statistics": {
+    "viewCount": "2016"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "en"
+   }
+  },
+  "ZoTx-s4F0Pg": {
+   "contentDetails": {
+    "duration": "PT2M35S"
+   },
+   "statistics": {
+    "viewCount": "498"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "t_CdmyB4wZY": {
+   "contentDetails": {
+    "duration": "PT1M"
+   },
+   "statistics": {
+    "viewCount": "454"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-US",
+    "defaultLanguage": "en"
+   }
+  },
+  "onP_IyOn_gM": {
+   "contentDetails": {
+    "duration": "PT1M34S"
+   },
+   "statistics": {
+    "viewCount": "2"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-IN",
+    "defaultLanguage": "en"
+   }
+  },
+  "gSffFYZnZGo": {
+   "contentDetails": {
+    "duration": "PT43S"
+   },
+   "statistics": {
+    "viewCount": "324"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "PS7OX_cBNvA": {
+   "contentDetails": {
+    "duration": "PT4M14S"
+   },
+   "statistics": {
+    "viewCount": "536"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "i1c7-2Ykgik": {
+   "contentDetails": {
+    "duration": "PT6M41S"
+   },
+   "statistics": {
+    "viewCount": "30"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-US",
+    "defaultLanguage": "en"
+   }
+  },
+  "jXTHwJt1hB0": {
+   "contentDetails": {
+    "duration": "PT2M3S"
+   },
+   "statistics": {
+    "viewCount": "83"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-US",
+    "defaultLanguage": "en"
+   }
+  },
+  "zOY4-tk6b-w": {
+   "contentDetails": {
+    "duration": "PT37S"
+   },
+   "statistics": {
+    "viewCount": "30"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-GB",
+    "defaultLanguage": "en-GB"
+   }
+  },
+  "TotBLX6rQw8": {
+   "contentDetails": {
+    "duration": "PT8M26S"
+   },
+   "statistics": {
+    "viewCount": "966"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-US",
+    "defaultLanguage": "en"
+   }
+  },
+  "k7mWfeRo5LE": {
+   "contentDetails": {
+    "duration": "PT1H44M24S"
+   },
+   "statistics": {
+    "viewCount": "101"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-IN",
+    "defaultLanguage": "en"
+   }
+  },
+  "1dUpHL5Yg8E": {
+   "contentDetails": {
+    "duration": "PT6M44S"
+   },
+   "statistics": {
+    "viewCount": "30154"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "XkL3SUioNvo": {
+   "contentDetails": {
+    "duration": "PT5M43S"
+   },
+   "statistics": {
+    "viewCount": "715945"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "hRqsb5rfCUM": {
+   "contentDetails": {
+    "duration": "PT57M6S"
+   },
+   "statistics": {
+    "viewCount": "16031"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "en"
+   }
+  },
+  "6jTCJ16SxO0": {
+   "contentDetails": {
+    "duration": "PT48S"
+   },
+   "statistics": {
+    "viewCount": "745"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "cNvZK0Wyoik": {
+   "contentDetails": {
+    "duration": "PT45M7S"
+   },
+   "statistics": {
+    "viewCount": "81574"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "en"
+   }
+  },
+  "VBblRmvICSY": {
+   "contentDetails": {
+    "duration": "PT33S"
+   },
+   "statistics": {
+    "viewCount": "2385"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "vGqt9j18_kY": {
+   "contentDetails": {
+    "duration": "PT7M12S"
+   },
+   "statistics": {
+    "viewCount": "16225"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "IxTjRw43SZg": {
+   "contentDetails": {
+    "duration": "PT58S"
+   },
+   "statistics": {
+    "viewCount": "501"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "OvTH-7ESoRA": {
+   "contentDetails": {
+    "duration": "PT1H1M48S"
+   },
+   "statistics": {
+    "viewCount": "3072487"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "zor9x-FiUPY": {
+   "contentDetails": {
+    "duration": "PT3M58S"
+   },
+   "statistics": {
+    "viewCount": "9"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "3HKdkws6YxQ": {
+   "contentDetails": {
+    "duration": "PT5M51S"
+   },
+   "statistics": {
+    "viewCount": "227843"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-GB",
+    "defaultLanguage": "en"
+   }
+  },
+  "i2i8YkFyLVs": {
+   "contentDetails": {
+    "duration": "PT9M5S"
+   },
+   "statistics": {
+    "viewCount": "61893"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-US",
+    "defaultLanguage": "en-US"
+   }
+  },
+  "cj7udLFALEY": {
+   "contentDetails": {
+    "duration": "PT9M11S"
+   },
+   "statistics": {
+    "viewCount": "4452"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "ur",
+    "defaultLanguage": "en-US"
+   }
+  },
+  "VawPFE7-wSs": {
+   "contentDetails": {
+    "duration": "PT21M21S"
+   },
+   "statistics": {
+    "viewCount": "60622"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "LZAeQYm4MPo": {
+   "contentDetails": {
+    "duration": "PT6M39S"
+   },
+   "statistics": {
+    "viewCount": "2519"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "5T8-ZWISjRM": {
+   "contentDetails": {
+    "duration": "PT19M57S"
+   },
+   "statistics": {
+    "viewCount": "2000"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "7kIYMU1tmGk": {
+   "contentDetails": {
+    "duration": "PT11M42S"
+   },
+   "statistics": {
+    "viewCount": "58805"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "zxx",
+    "defaultLanguage": "en"
+   }
+  },
+  "jEpOxquTtmI": {
+   "contentDetails": {
+    "duration": "PT8M54S"
+   },
+   "statistics": {
+    "viewCount": "1149"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "te",
+    "defaultLanguage": "en"
+   }
+  },
+  "0ZgrIHWT5go": {
+   "contentDetails": {
+    "duration": "PT5M28S"
+   },
+   "statistics": {
+    "viewCount": "15942"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "ta",
+    "defaultLanguage": "en-IN"
+   }
+  },
+  "bHpxdn1VdYk": {
+   "contentDetails": {
+    "duration": "PT33S"
+   },
+   "statistics": {
+    "viewCount": "5605"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-US",
+    "defaultLanguage": "en-US"
+   }
+  },
+  "0d6b6fFuCkE": {
+   "contentDetails": {
+    "duration": "PT13M50S"
+   },
+   "statistics": {
+    "viewCount": "938105"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "en"
+   }
+  },
+  "ijXMGpoMkhQ": {
+   "contentDetails": {
+    "duration": "PT7M52S"
+   },
+   "statistics": {
+    "viewCount": "734918"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "OCbSteqZsKQ": {
+   "contentDetails": {
+    "duration": "PT21M11S"
+   },
+   "statistics": {
+    "viewCount": "162420"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "eci9iU_s6Ag": {
+   "contentDetails": {
+    "duration": "PT9M55S"
+   },
+   "statistics": {
+    "viewCount": "625573"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "uY8QPE0dcSs": {
+   "contentDetails": {
+    "duration": "PT14M11S"
+   },
+   "statistics": {
+    "viewCount": "141386"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "Gf-Ws2cXEuA": {
+   "contentDetails": {
+    "duration": "PT6M15S"
+   },
+   "statistics": {
+    "viewCount": "108786"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-US",
+    "defaultLanguage": "en"
+   }
+  },
+  "BuAp27fbLVg": {
+   "contentDetails": {
+    "duration": "PT14M5S"
+   },
+   "statistics": {
+    "viewCount": "18482"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "AuFbqBLx1jI": {
+   "contentDetails": {
+    "duration": "PT32M15S"
+   },
+   "statistics": {
+    "viewCount": "53343"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-IN",
+    "defaultLanguage": "en-IN"
+   }
+  },
+  "PBnKt1Iz6E0": {
+   "contentDetails": {
+    "duration": "PT7M40S"
+   },
+   "statistics": {
+    "viewCount": "70997"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "hi"
+   }
+  },
+  "Gd2O4tAf6r0": {
+   "contentDetails": {
+    "duration": "PT14M6S"
+   },
+   "statistics": {
+    "viewCount": "6131"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "n4orr02dEvw": {
+   "contentDetails": {
+    "duration": "PT13M31S"
+   },
+   "statistics": {
+    "viewCount": "91764"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "te",
+    "defaultLanguage": "en"
+   }
+  },
+  "0yySumZTxJ0": {
+   "contentDetails": {
+    "duration": "PT9M23S"
+   },
+   "statistics": {
+    "viewCount": "174305"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-GB",
+    "defaultLanguage": "en-GB"
+   }
+  },
+  "1tnFQDo05hQ": {
+   "contentDetails": {
+    "duration": "PT29M1S"
+   },
+   "statistics": {
+    "viewCount": "306974"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "9OeznAkyQz4": {
+   "contentDetails": {
+    "duration": "PT18M49S"
+   },
+   "statistics": {
+    "viewCount": "428816"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "gOMW_n2-2Mw": {
+   "contentDetails": {
+    "duration": "PT15M6S"
+   },
+   "statistics": {
+    "viewCount": "841045"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "8-RDVWGktuI": {
+   "contentDetails": {
+    "duration": "PT22M45S"
+   },
+   "statistics": {
+    "viewCount": "66475"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "scWc3F8LbOo": {
+   "contentDetails": {
+    "duration": "PT9M32S"
+   },
+   "statistics": {
+    "viewCount": "662904"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "en"
+   }
+  },
+  "Eaz5e6M8tL4": {
+   "contentDetails": {
+    "duration": "PT10M42S"
+   },
+   "statistics": {
+    "viewCount": "3531776"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "Icw4cLTtKh4": {
+   "contentDetails": {
+    "duration": "PT11M5S"
+   },
+   "statistics": {
+    "viewCount": "273852"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-GB",
+    "defaultLanguage": "en"
+   }
+  },
+  "FUEzZ-O1AhA": {
+   "contentDetails": {
+    "duration": "PT12M9S"
+   },
+   "statistics": {
+    "viewCount": "6710"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "ut74oHojxqo": {
+   "contentDetails": {
+    "duration": "PT10M54S"
+   },
+   "statistics": {
+    "viewCount": "338263"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "B1k_sxOSgv8": {
+   "contentDetails": {
+    "duration": "PT11M32S"
+   },
+   "statistics": {
+    "viewCount": "528034"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "ls-177DIGao": {
+   "contentDetails": {
+    "duration": "PT9M36S"
+   },
+   "statistics": {
+    "viewCount": "104792"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "4dkyoymvFng": {
+   "contentDetails": {
+    "duration": "PT7M49S"
+   },
+   "statistics": {
+    "viewCount": "8775"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-GB",
+    "defaultLanguage": "en"
+   }
+  },
+  "EimoZHDcQMA": {
+   "contentDetails": {
+    "duration": "PT8M35S"
+   },
+   "statistics": {
+    "viewCount": "83214"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "7dWeVvk9_uM": {
+   "contentDetails": {
+    "duration": "PT42S"
+   },
+   "statistics": {
+    "viewCount": "31"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "Pr9F-ujaC7c": {
+   "contentDetails": {
+    "duration": "PT23S"
+   },
+   "statistics": {
+    "viewCount": "529"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "hi"
+   }
+  },
+  "MPuLPt9e4HQ": {
+   "contentDetails": {
+    "duration": "PT9S"
+   },
+   "statistics": {
+    "viewCount": "4033"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "lPied7jsfkQ": {
+   "contentDetails": {
+    "duration": "PT7M15S"
+   },
+   "statistics": {
+    "viewCount": "205593"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-GB",
+    "defaultLanguage": "en"
+   }
+  },
+  "Ns9JtMGh0WI": {
+   "contentDetails": {
+    "duration": "PT52S"
+   },
+   "statistics": {
+    "viewCount": "29"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  }
+ },
+ "videos": [
+  {
+   "video_id": "3HKdkws6YxQ",
+   "title": "Lec-9: Operators in Python 🐍 Precedence &amp; Associativity with examples | Python for Beginners",
+   "description": "Master Python operators with ease! In this video, Varun sir will break down operators in Python, explain their precedence and ...",
+   "link": "https://www.youtube.com/watch?v=3HKdkws6YxQ",
+   "views": 227843
+  },
+  {
+   "video_id": "ut74oHojxqo",
+   "title": "Unicode, in friendly terms: ASCII, UTF-8, code points, character encodings, and more",
+   "description": "Ever been bit by a Unicode bug? Maybe you weren't treating UTF-8 encoded data correctly, or tried to read it as ASCII? Maybe ...",
+   "link": "https://www.youtube.com/watch?v=ut74oHojxqo",
+   "views": 338263
+  },
+  {
+   "video_id": "Ro_MScTDfU4",
+   "title": "Learn Python in Only 30 Minutes (Beginner Tutorial)",
+   "description": "In this video I'm going to be teaching you the core concepts that you need to know to get started with using Python. ▷ Become ...",
+   "link": "https://www.youtube.com/watch?v=Ro_MScTDfU4",
+   "views": 1304849
+  },
+  {
+   "video_id": "vLqTf2b6GZw",
+   "title": "Python Tutorial for Beginners | Learn Python in 1.5 Hours",
+   "description": "This video is made with a lot of love from Apna College ❤️ Are you worried about placements/internships? Want to prepare for ...",
+   "link": "https://www.youtube.com/watch?v=vLqTf2b6GZw",
+   "views": 12299085
+  },
+  {
+   "video_id": "ijXMGpoMkhQ",
+   "title": "#33 Python Tutorial for Beginners | Function Arguments in Python",
+   "description": "Check out our courses: Agentic AI Engineering with Python : https://go.telusko.com/agentic-ai-python Coupon: TELUSKO10 (10% ...",
+   "link": "https://www.youtube.com/watch?v=ijXMGpoMkhQ",
+   "views": 734918
+  }
+ ]
+}

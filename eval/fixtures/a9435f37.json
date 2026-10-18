@@ -1,0 +1,2148 @@
+{
+ "id": "a9435f37",
+ "n_chunks": 110,
+ "global_top_keywords": [
+  "adaptive load share",
+  "operating system concept",
+  "mean backend delay",
+  "study main focus",
+  "main focus key",
+  "decision choice reason",
+  "queue turn overload",
+  "system concept demonstrate",
+  "multiple backend server",
+  "system cpu stay",
+  "share backend state",
+  "server load balance",
+  "worker round robin",
+  "d. l. eager",
+  "reproducible performance benchmark",
+  "extra connection receive",
+  "time comparison support",
+  "consecutive success mark",
+  "consecutive failure mark",
+  "algorithm run inside",
+  "fail connect mark",
+  "ms average time",
+  "measure response time",
+  "useful throughput stay",
+  "throughput stay close",
+  "identify research gap",
+  "health thread bring",
+  "load sharing system",
+  "connection count happen",
+  "balancer architecture suitable"
+ ],
+ "ranked": [
+  {
+   "chunk": "[1] Adaptive load sharing System-state-aware \nscheduling \nMotivates Least Connections \nand state tracking \nEager et al.[2] Sender vs receiver load \nsharing \nLoad-dependent policy \nbehaviour \nSupports workload-based \nevaluation \nTeo and Ayani [3] Cluster web servers RR vs Least Connected vs \nLeast Loaded \nBasis for metrics and \nalgorithm comparison \nZhang and Fan",
+   "score": 6.281294524669647
+  },
+  {
+   "chunk": "Queueing-based research on web-server load balancing has also analysed routing policies, \nconsidering measures such as waiting time and request rejection under finite server capacity [4]. \nThis is relevant to the project because a thread pool and backend connection limits introduce finite \nresources and queues into the system. \n1.2.3 Concurrency and Operating-System Mechanisms \nResearch on web-server concurrency distinguishes synchronous and asynchronous approaches and \nshows that concurrency mechanisms provided by the underlying operating system affect \nperformance and implementation complexity",
+   "score": 5.308817088603973
+  },
+  {
+   "chunk": "Process/thread scheduling The OS schedules worker threads while the application performs a second-\nlevel scheduling decision for backend servers. \nSynchronization Shared backend state and counters require mutexes to avoid race conditions.  \nProducer-consumer problem The acceptor produces tasks while worker threads consume them from a \nbounded queue. \n",
+   "score": 5.242363631725311
+  },
+  {
+   "chunk": "4 \nStudy Main focus Key relevance Project use \nHarjanti et al.[6] RR vs Least \nConnection \nResponse-time comparison Supports practical \nbenchmark design \nTable 1.Literature comparison. \n",
+   "score": 5.1795655488967896
+  },
+  {
+   "chunk": "Two consecutive failures mark a backend down and two \nconsecutive successes mark it up.Only the health thread brings a backend back. \n3.6 Design Decisions \nDecision Choice Reason \nFull queue Reply 503 and close Overload becomes visible and \nmeasurable \nI/O model Blocking sockets with 5 s timeouts A blocked worker is the effect under \nstudy",
+   "score": 4.811135113239288
+  },
+  {
+   "chunk": "Critical sections Backend selection and connection-count updates must be kept consistent. \nBlocking I/O Socket reads and writes block worker threads; this directly affects effective \nconcurrency. \nResource management Thread count, queue size, sockets and backend connections are finite \nresources. \n",
+   "score": 4.491146147251129
+  },
+  {
+   "chunk": "1.4 Identified Research Gap \nThe surveyed literature provides substantial analysis of load-balancing algorithms and distributed \nload sharing, but much of the evaluation treats the load balancer primarily as a scheduling or \nnetwork component.We identified an opportunity to connect these scheduling decisions explicitly \nwith the internal OS mechanisms used to execute them. \n• Many algorithm comparisons focus on the final network metrics (throughput, latency or \nutilization) without making thread-management overhead a central experimental variable. \n",
+   "score": 4.468224465847015
+  },
+  {
+   "chunk": "This project designed and implemented a multithreaded HTTP load balancer in C that accepts \nconcurrent client requests, forwards them to multiple backend servers, and manages server \nselection.It supports Round Robin and Least Connections through a pluggable scheduling \ninterface.It also includes a bounded thread pool for concurrent request processing, periodic \nbackend health checks, automatic failover and server recovery, request logging, performance \nstatistics, and a live dashboard that compares the two algorithms side by side. \n",
+   "score": 4.308174729347229
+  }
+ ],
+ "selected": [
+  {
+   "chunk": "[1] Adaptive load sharing System-state-aware \nscheduling \nMotivates Least Connections \nand state tracking \nEager et al.[2] Sender vs receiver load \nsharing \nLoad-dependent policy \nbehaviour \nSupports workload-based \nevaluation \nTeo and Ayani [3] Cluster web servers RR vs Least Connected vs \nLeast Loaded \nBasis for metrics and \nalgorithm comparison \nZhang and Fan",
+   "score": 6.281294524669647,
+   "keywords": [
+    {
+     "keyword": "load sharing system",
+     "score": 0.8183346390724182,
+     "freq": 1
+    },
+    {
+     "keyword": "adaptive load share",
+     "score": 0.8183346390724182,
+     "freq": 1
+    },
+    {
+     "keyword": "cluster web server",
+     "score": 0.7153319120407104,
+     "freq": 1
+    },
+    {
+     "keyword": "vs receiver load",
+     "score": 0.6559547781944275,
+     "freq": 1
+    }
+   ]
+  },
+  {
+   "chunk": "Queueing-based research on web-server load balancing has also analysed routing policies, \nconsidering measures such as waiting time and request rejection under finite server capacity [4]. \nThis is relevant to the project because a thread pool and backend connection limits introduce finite \nresources and queues into the system. \n1.2.3 Concurrency and Operating-System Mechanisms \nResearch on web-server concurrency distinguishes synchronous and asynchronous approaches and \nshows that concurrency mechanisms provided by the underlying operating system affect \nperformance and implementation complexity",
+   "score": 5.308817088603973,
+   "keywords": [
+    {
+     "keyword": "analyse routing policy",
+     "score": 0.7729672193527222,
+     "freq": 1
+    },
+    {
+     "keyword": "server load balance",
+     "score": 0.6710578203201294,
+     "freq": 1
+    },
+    {
+     "keyword": "connection limit introduce",
+     "score": 0.7945217490196228,
+     "freq": 1
+    },
+    {
+     "keyword": "limit introduce finite",
+     "score": 0.7519409656524658,
+     "freq": 1
+    },
+    {
+     "keyword": "underlie operating system",
+     "score": 0.8064245581626892,
+     "freq": 1
+    },
+    {
+     "keyword": "operating system affect",
+     "score": 0.789723813533783,
+     "freq": 1
+    }
+   ]
+  },
+  {
+   "chunk": "Process/thread scheduling The OS schedules worker threads while the application performs a second-\nlevel scheduling decision for backend servers. \nSynchronization Shared backend state and counters require mutexes to avoid race conditions.  \nProducer-consumer problem The acceptor produces tasks while worker threads consume them from a \nbounded queue. \n",
+   "score": 5.242363631725311,
+   "keywords": [
+    {
+     "keyword": "os schedule worker",
+     "score": 0.807378351688385,
+     "freq": 1
+    },
+    {
+     "keyword": "level scheduling decision",
+     "score": 0.8001683950424194,
+     "freq": 1
+    },
+    {
+     "keyword": "avoid race condition",
+     "score": 0.7853089570999146,
+     "freq": 1
+    },
+    {
+     "keyword": "share backend state",
+     "score": 0.7395938038825989,
+     "freq": 1
+    },
+    {
+     "keyword": "worker thread consume",
+     "score": 0.759056568145752,
+     "freq": 1
+    },
+    {
+     "keyword": "acceptor produce task",
+     "score": 0.6112637519836426,
+     "freq": 1
+    }
+   ]
+  },
+  {
+   "chunk": "4 \nStudy Main focus Key relevance Project use \nHarjanti et al.[6] RR vs Least \nConnection \nResponse-time comparison Supports practical \nbenchmark design \nTable 1.Literature comparison. \n",
+   "score": 5.1795655488967896,
+   "keywords": [
+    {
+     "keyword": "study main focus",
+     "score": 0.8830674886703491,
+     "freq": 1
+    },
+    {
+     "keyword": "main focus key",
+     "score": 0.8717628717422485,
+     "freq": 1
+    },
+    {
+     "keyword": "time comparison support",
+     "score": 0.8730067610740662,
+     "freq": 1
+    },
+    {
+     "keyword": "comparison support practical",
+     "score": 0.7968980669975281,
+     "freq": 1
+    }
+   ]
+  },
+  {
+   "chunk": "Two consecutive failures mark a backend down and two \nconsecutive successes mark it up.Only the health thread brings a backend back. \n3.6 Design Decisions \nDecision Choice Reason \nFull queue Reply 503 and close Overload becomes visible and \nmeasurable \nI/O model Blocking sockets with 5 s timeouts A blocked worker is the effect under \nstudy",
+   "score": 4.811135113239288,
+   "keywords": [
+    {
+     "keyword": "consecutive success mark",
+     "score": 0.8728865385055542,
+     "freq": 1
+    },
+    {
+     "keyword": "consecutive failure mark",
+     "score": 0.8728865385055542,
+     "freq": 1
+    },
+    {
+     "keyword": "health thread bring",
+     "score": 0.8188945055007935,
+     "freq": 1
+    },
+    {
+     "keyword": "decision choice reason",
+     "score": 0.8298406600952148,
+     "freq": 1
+    },
+    {
+     "keyword": "model block socket",
+     "score": 0.5867862105369568,
+     "freq": 1
+    }
+   ]
+  },
+  {
+   "chunk": "Critical sections Backend selection and connection-count updates must be kept consistent. \nBlocking I/O Socket reads and writes block worker threads; this directly affects effective \nconcurrency. \nResource management Thread count, queue size, sockets and backend connections are finite \nresources. \n",
+   "score": 4.491146147251129,
+   "keywords": [
+    {
+     "keyword": "section backend selection",
+     "score": 0.7738308310508728,
+     "freq": 1
+    },
+    {
+     "keyword": "critical section backend",
+     "score": 0.7595478892326355,
+     "freq": 1
+    },
+    {
+     "keyword": "block worker thread",
+     "score": 0.7458142042160034,
+     "freq": 1
+    },
+    {
+     "keyword": "write block worker",
+     "score": 0.7055010795593262,
+     "freq": 1
+    },
+    {
+     "keyword": "management thread count",
+     "score": 0.7664461731910706,
+     "freq": 1
+    },
+    {
+     "keyword": "resource management thread",
+     "score": 0.7400059700012207,
+     "freq": 1
+    }
+   ]
+  },
+  {
+   "chunk": "1.4 Identified Research Gap \nThe surveyed literature provides substantial analysis of load-balancing algorithms and distributed \nload sharing, but much of the evaluation treats the load balancer primarily as a scheduling or \nnetwork component.We identified an opportunity to connect these scheduling decisions explicitly \nwith the internal OS mechanisms used to execute them. \n• Many algorithm comparisons focus on the final network metrics (throughput, latency or \nutilization) without making thread-management overhead a central experimental variable. \n",
+   "score": 4.468224465847015,
+   "keywords": [
+    {
+     "keyword": "identify research gap",
+     "score": 0.8260101675987244,
+     "freq": 1
+    },
+    {
+     "keyword": "provide substantial analysis",
+     "score": 0.7949821949005127,
+     "freq": 1
+    },
+    {
+     "keyword": "scheduling decision explicitly",
+     "score": 0.7051671147346497,
+     "freq": 1
+    },
+    {
+     "keyword": "internal os mechanism",
+     "score": 0.6036965847015381,
+     "freq": 1
+    },
+    {
+     "keyword": "final network metric",
+     "score": 0.7735908627510071,
+     "freq": 1
+    },
+    {
+     "keyword": "central experimental variable",
+     "score": 0.7647775411605835,
+     "freq": 1
+    }
+   ]
+  },
+  {
+   "chunk": "This project designed and implemented a multithreaded HTTP load balancer in C that accepts \nconcurrent client requests, forwards them to multiple backend servers, and manages server \nselection.It supports Round Robin and Least Connections through a pluggable scheduling \ninterface.It also includes a bounded thread pool for concurrent request processing, periodic \nbackend health checks, automatic failover and server recovery, request logging, performance \nstatistics, and a live dashboard that compares the two algorithms side by side. \n",
+   "score": 4.308174729347229,
+   "keywords": [
+    {
+     "keyword": "multiple backend server",
+     "score": 0.6972204446792603,
+     "freq": 1
+    },
+    {
+     "keyword": "concurrent client request",
+     "score": 0.6252712607383728,
+     "freq": 1
+    },
+    {
+     "keyword": "support round robin",
+     "score": 0.695030689239502,
+     "freq": 1
+    },
+    {
+     "keyword": "backend health check",
+     "score": 0.7494843006134033,
+     "freq": 1
+    },
+    {
+     "keyword": "concurrent request processing",
+     "score": 0.7161900401115417,
+     "freq": 1
+    }
+   ]
+  }
+ ],
+ "topic": "Multithreaded HTTP load balancer",
+ "queries": [
+  "adaptive load sharing load balancer",
+  "Thread pooling load balancer",
+  "thread scheduling load balancer",
+  "round robin vs least connection",
+  "health checks load balancer",
+  "critical sections backend selection load balancer",
+  "thread management load balancer",
+  "multithreaded load balancer"
+ ],
+ "candidates": {
+  "PmNOrh568Os": {
+   "video_id": "PmNOrh568Os",
+   "title": "System Design: Load Balancing | How Load Balancers work",
+   "description": "System Design -- Load Balancing | How Load Balancers work. Features of Load Balancer: * Distribute load/requests across ...",
+   "link": "https://www.youtube.com/watch?v=PmNOrh568Os",
+   "ranks": [
+    0
+   ]
+  },
+  "1TElJyRtws0": {
+   "video_id": "1TElJyRtws0",
+   "title": "AWS Load Balancers ELB ALB NLB GLB CLB Tutorial for Amazon Cloud Developers",
+   "description": "1 ELB - Elastic load balancer automatically distributes your incoming traffic across multiple targets, such as EC2 instances, ...",
+   "link": "https://www.youtube.com/watch?v=1TElJyRtws0",
+   "ranks": [
+    1,
+    3
+   ]
+  },
+  "Piwr8TAy404": {
+   "video_id": "Piwr8TAy404",
+   "title": "[SOLVED] SER334 Implementing Load Balancing",
+   "description": "Download Link: https://assignmentchef.com/product/solved-ser334-unit-8-implementing-load-balancing/ Implementing Load ...",
+   "link": "https://www.youtube.com/watch?v=Piwr8TAy404",
+   "ranks": [
+    2
+   ]
+  },
+  "37sdnojPHOs": {
+   "video_id": "37sdnojPHOs",
+   "title": "What is Load Balancing? | How does it work?  | Why is it needed? | Where is it used? | System Design",
+   "description": "Load balancing is one of the key component of highly available and scalable systems. I took a live online lecture in which I ...",
+   "link": "https://www.youtube.com/watch?v=37sdnojPHOs",
+   "ranks": [
+    3
+   ]
+  },
+  "wLdxC9gesBs": {
+   "video_id": "wLdxC9gesBs",
+   "title": "Why WebSockets over HTTP/2 (RFC8441) is Critical for Effective Load Balancing and Backend Scaling",
+   "description": "In this video, I'll discuss RFC8441 bootstrapping WebSockets with HTTP/2 which is a critical protocol to allow WebSockets ...",
+   "link": "https://www.youtube.com/watch?v=wLdxC9gesBs",
+   "ranks": [
+    4
+   ]
+  },
+  "D-b3UDRDFVQ": {
+   "video_id": "D-b3UDRDFVQ",
+   "title": "#6 - Understanding &amp; Implementing Load Balancers in real time scenarios",
+   "description": "Content/Topics Covered Inside this Video are as Follows: ( Put UP a Thumbs Up/ Thumbs Down if Like or DisLike this video/ ...",
+   "link": "https://www.youtube.com/watch?v=D-b3UDRDFVQ",
+   "ranks": [
+    5,
+    8
+   ]
+  },
+  "YM_dEeXmnuY": {
+   "video_id": "YM_dEeXmnuY",
+   "title": "Load Balancers: Algorithms and Design",
+   "description": "This is a live video showing how a load balancer like Nginx is designed. 00:00 QnA 17:00 Coding 58:00 More QnA Code: ...",
+   "link": "https://www.youtube.com/watch?v=YM_dEeXmnuY",
+   "ranks": [
+    6,
+    0
+   ]
+  },
+  "Qe3X7pEhTbE": {
+   "video_id": "Qe3X7pEhTbE",
+   "title": "What is Load Balancing and Load balancer | Need of load balancer | What is Hashing",
+   "description": "Load balancing is a critical aspect of managing web traffic efficiently across multiple servers or resources. When a website or ...",
+   "link": "https://www.youtube.com/watch?v=Qe3X7pEhTbE",
+   "ranks": [
+    7
+   ]
+  },
+  "8e5NmI4WGQY": {
+   "video_id": "8e5NmI4WGQY",
+   "title": "How servers actually handle 1000s of requests #coding #servers #programming",
+   "description": "Ever wondered how a single server handles thousands of users without crashing? This video dives into different server ...",
+   "link": "https://www.youtube.com/watch?v=8e5NmI4WGQY",
+   "ranks": [
+    8
+   ]
+  },
+  "iv4s0uBe_UA": {
+   "video_id": "iv4s0uBe_UA",
+   "title": "API Testing : HTTP Status Code : 300 Multiple Choices : SDET Automation Testing Interview",
+   "description": "Crack SDET QA Interviews with a Powerful Self-Introduction https://topmate.io/qa_sdet_automation_expert/1574044 Top 50 ...",
+   "link": "https://www.youtube.com/watch?v=iv4s0uBe_UA",
+   "ranks": [
+    9
+   ]
+  },
+  "UDyVEOM6wBM": {
+   "video_id": "UDyVEOM6wBM",
+   "title": "How Bifrost does adaptive LLM load balancing for you - Akshay Deo, CTO Maxim AI | Mitramandal.ai",
+   "description": "In this Mitramandal.ai session from Pune, Akshay Deo walks through how Bifrost, an open-source AI gateway, solves the problem ...",
+   "link": "https://www.youtube.com/watch?v=UDyVEOM6wBM",
+   "ranks": [
+    0
+   ]
+  },
+  "Y6njDHeNePg": {
+   "video_id": "Y6njDHeNePg",
+   "title": "Optimizing AI/ML Infrastructure with Adaptive Load Balancing",
+   "description": "In this video, Alok Pandey, Product Line Manager at Juniper Networks, introduces a new technology, \"Adaptive Load Balancing\" ...",
+   "link": "https://www.youtube.com/watch?v=Y6njDHeNePg",
+   "ranks": [
+    1
+   ]
+  },
+  "EALqTv2Oh6E": {
+   "video_id": "EALqTv2Oh6E",
+   "title": "How to configure adaptive load balancing (balance-alb) on a Buffalo TeraStation device",
+   "description": "https://ko-fi.com/denisgriffoni Amazon.it https://amzn.to/2Prq20r Amazon.co.uk https://amzn.to/2V1p7FX Amazon.es ...",
+   "link": "https://www.youtube.com/watch?v=EALqTv2Oh6E",
+   "ranks": [
+    2
+   ]
+  },
+  "CAG8uUlYqBk": {
+   "video_id": "CAG8uUlYqBk",
+   "title": "Adaptive Load Balancing - QFX10K",
+   "description": "",
+   "link": "https://www.youtube.com/watch?v=CAG8uUlYqBk",
+   "ranks": [
+    3
+   ]
+  },
+  "tWxv4GK_uk4": {
+   "video_id": "tWxv4GK_uk4",
+   "title": "Load Balancing Approach 🔥🔥",
+   "description": "This video is about Load Balancing Approach in Distributed System in Hindi or Load Balancing Algorithm in Distributed ...",
+   "link": "https://www.youtube.com/watch?v=tWxv4GK_uk4",
+   "ranks": [
+    4
+   ]
+  },
+  "atWt8OInH5A": {
+   "video_id": "atWt8OInH5A",
+   "title": "Gnodal Showcases Fully Adaptive Load Balancing Ethernet Fabric at SC12",
+   "description": "In this video from SC12, Fred Homewood from Gnodal describes the company's high bandwidth, low latency 40 GigE Ethernet ...",
+   "link": "https://www.youtube.com/watch?v=atWt8OInH5A",
+   "ranks": [
+    5
+   ]
+  },
+  "j6tVrBlRb_s": {
+   "video_id": "j6tVrBlRb_s",
+   "title": "How you can leverage SDN to deliver adaptive load balancing",
+   "description": "SDN Adaptive Load Balancing from Kemp uses Layer 2 and Layer 3 network information from SDN controllers to optimise service ...",
+   "link": "https://www.youtube.com/watch?v=j6tVrBlRb_s",
+   "ranks": [
+    6
+   ]
+  },
+  "zrV52noCyXE": {
+   "video_id": "zrV52noCyXE",
+   "title": "Adaptive Load Balancing - Conceptos Básicos",
+   "description": "Visita nuestra tienda online: http://qloudea.com Visita nuestro blog: http://qloudea.com/blog.",
+   "link": "https://www.youtube.com/watch?v=zrV52noCyXE",
+   "ranks": [
+    7
+   ]
+  },
+  "dkC2fRaYX4k": {
+   "video_id": "dkC2fRaYX4k",
+   "title": "Automatic LoadSharing Transformer With Arduino || Electrical Project #shorts #electricalprojects",
+   "description": "Electrical project- Automatic load Sharing Transformer with Arduino:- What is the purpose of load sharing? Load sharing is a way ...",
+   "link": "https://www.youtube.com/watch?v=dkC2fRaYX4k",
+   "ranks": [
+    8
+   ]
+  },
+  "-lEAqcQrmbo": {
+   "video_id": "-lEAqcQrmbo",
+   "title": "Load Balancing Technique | Agent based Adaptive Load Balancing Algorithm | Part - 5 | Lecture - 35",
+   "description": "Load Balancing Technique | Agent based Adaptive Load Balancing Algorithm.",
+   "link": "https://www.youtube.com/watch?v=-lEAqcQrmbo",
+   "ranks": [
+    9
+   ]
+  },
+  "ZcKt5FYd3bU": {
+   "video_id": "ZcKt5FYd3bU",
+   "title": "Thread Pools in Java",
+   "description": "A Thread Pool is an alternative to creating a new thread per task to execute. Instead, a number of pre-created threads exist in a ...",
+   "link": "https://www.youtube.com/watch?v=ZcKt5FYd3bU",
+   "ranks": [
+    0
+   ]
+  },
+  "4aVm7fBgKEk": {
+   "video_id": "4aVm7fBgKEk",
+   "title": "Mastering Thread Pools in C++ and C: Fixed and Work Stealing Methods",
+   "description": "Summary: Explore the essentials of C++ and C thread pools, including fixed and work stealing thread pool architectures, ...",
+   "link": "https://www.youtube.com/watch?v=4aVm7fBgKEk",
+   "ranks": [
+    1
+   ]
+  },
+  "oczo0ZCdczQ": {
+   "video_id": "oczo0ZCdczQ",
+   "title": "What is Executor Framework and how it creates Threads and Thread Pools in Hindi By - Amit Goyal",
+   "description": "Dear Friends, This video will help you all to understand the basics of Executor Framework or Java Concurrency API. In this video i ...",
+   "link": "https://www.youtube.com/watch?v=oczo0ZCdczQ",
+   "ranks": [
+    2
+   ]
+  },
+  "iS6UJcWQhis": {
+   "video_id": "iS6UJcWQhis",
+   "title": "3 Load Balancing Algorithms in 90 Seconds",
+   "description": "Learn the 3 most common algorithms that distribute traffic across your servers! Round Robin: Simple rotation - Request 1 ...",
+   "link": "https://www.youtube.com/watch?v=iS6UJcWQhis",
+   "ranks": [
+    3,
+    2
+   ]
+  },
+  "wJ8vdl4JBqY": {
+   "video_id": "wJ8vdl4JBqY",
+   "title": "UEC++ From Basics to Advanced | M17-002: Thread and Thread Pool Concepts",
+   "description": "This video uses visual diagrams to explain the thread lifecycle and thread pool architecture. A thread goes through: creation and ...",
+   "link": "https://www.youtube.com/watch?v=wJ8vdl4JBqY",
+   "ranks": [
+    4
+   ]
+  },
+  "lX3NAVjRFw8": {
+   "video_id": "lX3NAVjRFw8",
+   "title": "How Java Executor Service works with Pool of worker threads in Hindi-Part 3 by-Amit Goyal",
+   "description": "Dear Friends, This video will help you all to understand how executor service works with pool of threads in Java Concurrency API ...",
+   "link": "https://www.youtube.com/watch?v=lX3NAVjRFw8",
+   "ranks": [
+    5
+   ]
+  },
+  "6lHvks6R6cI": {
+   "video_id": "6lHvks6R6cI",
+   "title": "Scaling your Node.js app using the &quot;cluster&quot; module",
+   "description": "In this tutorial for the \"cluster\" module of Node.js, we dive deep into the topic of multi-processing, load-balancing, and improved ...",
+   "link": "https://www.youtube.com/watch?v=6lHvks6R6cI",
+   "ranks": [
+    6
+   ]
+  },
+  "Ep-36Lpqngc": {
+   "video_id": "Ep-36Lpqngc",
+   "title": "OpenCL batch computing: task-device pool vs load balancing vs multiple queues",
+   "description": "In this video, a batch(50) of independent nbody compute jobs are consumed by GPUs. Each compute contains 24k particles and ...",
+   "link": "https://www.youtube.com/watch?v=Ep-36Lpqngc",
+   "ranks": [
+    7
+   ]
+  },
+  "3K9QqjDmwCE": {
+   "video_id": "3K9QqjDmwCE",
+   "title": "How One Slow Query Kills Your Entire Backend (Connection Pool Exhaustion)",
+   "description": "Why does a single slow database query bring down an entire distributed system? In this video, we break down the exact anatomy ...",
+   "link": "https://www.youtube.com/watch?v=3K9QqjDmwCE",
+   "ranks": [
+    8
+   ]
+  },
+  "CK7ZgFFtNV0": {
+   "video_id": "CK7ZgFFtNV0",
+   "title": "Concurrency-How Java Executor Service works with Single worker thread pool-Hindi Part 2 - Amit Goyal",
+   "description": "Dear Friends, This video will help you all to understand and code with Single worker thread in Java Executor Service. This is with ...",
+   "link": "https://www.youtube.com/watch?v=CK7ZgFFtNV0",
+   "ranks": [
+    9
+   ]
+  },
+  "pmXYotxsidU": {
+   "video_id": "pmXYotxsidU",
+   "title": "CPU Scheduling in Multiprocessor Systems: Load Balancing &amp; Processor Affinity",
+   "description": "Dive deep into CPU scheduling within multiprocessor systems! This video explores advanced operating system concepts, ...",
+   "link": "https://www.youtube.com/watch?v=pmXYotxsidU",
+   "ranks": [
+    0
+   ]
+  },
+  "eR0MzSs9O1w": {
+   "video_id": "eR0MzSs9O1w",
+   "title": "Efficient load balancing in distributed systems - Shiven Mian - FOSSASIA Summit 2017",
+   "description": "Speaker(s): Shiven Mian () Abstract: Load balancing is the process of improving the performance of distributed systems by ...",
+   "link": "https://www.youtube.com/watch?v=eR0MzSs9O1w",
+   "ranks": [
+    1
+   ]
+  },
+  "sCR3SAVdyCc": {
+   "video_id": "sCR3SAVdyCc",
+   "title": "What is a Load Balancer?",
+   "description": "Learn more about load balancers → https://ibm.biz/Bdfhdf Check out IBM Cloud load balancers → https://ibm.biz/BdfhXa Check ...",
+   "link": "https://www.youtube.com/watch?v=sCR3SAVdyCc",
+   "ranks": [
+    2,
+    0
+   ]
+  },
+  "nIz5d_5seuo": {
+   "video_id": "nIz5d_5seuo",
+   "title": "IT Lecture - 21 Multiprocessor scheduling,Types of Multiprocessor,Processor Affinity,Load Balancing",
+   "description": "Multiprocessor scheduling, Types of Multiprocessor, Processor Affinity, Load Balancing.",
+   "link": "https://www.youtube.com/watch?v=nIz5d_5seuo",
+   "ranks": [
+    3
+   ]
+  },
+  "zSMFaaBori4": {
+   "video_id": "zSMFaaBori4",
+   "title": "Multi-Core Load Balancing Scheduler | OS Project Explained",
+   "description": "This project demonstrates the design and implementation of a Multi-Core Load Balancing Scheduler in an Operating System ...",
+   "link": "https://www.youtube.com/watch?v=zSMFaaBori4",
+   "ranks": [
+    4
+   ]
+  },
+  "FZQIJzqE7Bc": {
+   "video_id": "FZQIJzqE7Bc",
+   "title": "OS • Process Scheduling • Load Balancing • Memory Stalls • Processor Affinity",
+   "description": "",
+   "link": "https://www.youtube.com/watch?v=FZQIJzqE7Bc",
+   "ranks": [
+    5
+   ]
+  },
+  "-dIdn8J2jws": {
+   "video_id": "-dIdn8J2jws",
+   "title": "Load Balancing In Multiprocessor Scheduling",
+   "description": "Subscribe to Ekeeda Channel to access more videos https://www.youtube.com/c/Ekeeda?sub_confirmation=1 ...",
+   "link": "https://www.youtube.com/watch?v=-dIdn8J2jws",
+   "ranks": [
+    6
+   ]
+  },
+  "APn80XKag3o": {
+   "video_id": "APn80XKag3o",
+   "title": "What is load balancing",
+   "description": "",
+   "link": "https://www.youtube.com/watch?v=APn80XKag3o",
+   "ranks": [
+    7
+   ]
+  },
+  "i9Jq8BDEF_A": {
+   "video_id": "i9Jq8BDEF_A",
+   "title": "Scheduling and Load Balancing in RHEL8 and Beyond - DevConf.CZ 2021",
+   "description": "Speaker Philip Auld Deciding which task to run when and where is the job of the kernel scheduler. This is a piece of the plumbing ...",
+   "link": "https://www.youtube.com/watch?v=i9Jq8BDEF_A",
+   "ranks": [
+    8
+   ]
+  },
+  "c0Ah-nNBTIU": {
+   "video_id": "c0Ah-nNBTIU",
+   "title": "Multiprocessor Scheduling | Processor Affinity | Load Balancing | Operating Systems Concepts",
+   "description": "Multiprocessorscheduling#OSConcepts#processor.",
+   "link": "https://www.youtube.com/watch?v=c0Ah-nNBTIU",
+   "ranks": [
+    9
+   ]
+  },
+  "WnzgKwrrY0g": {
+   "video_id": "WnzgKwrrY0g",
+   "title": "Load Balancing Algorithms Explained: Round Robin, Least Connections, Weighted",
+   "description": "Master Load Balancing Algorithms for scalable systems! ⚖️ Learn Round Robin (sequential distribution), Least Connections ...",
+   "link": "https://www.youtube.com/watch?v=WnzgKwrrY0g",
+   "ranks": [
+    0
+   ]
+  },
+  "0suOpFXXAj0": {
+   "video_id": "0suOpFXXAj0",
+   "title": "Load Balancing Algorithms Explained | Round Robin, Least Connection, IP Hash with Real Life Examples",
+   "description": "Learn Load Balancing Algorithms with Real-Life Examples | Round Robin, Least Connections, and IP Hash In this ...",
+   "link": "https://www.youtube.com/watch?v=0suOpFXXAj0",
+   "ranks": [
+    1
+   ]
+  },
+  "dBmxNsS3BGE": {
+   "video_id": "dBmxNsS3BGE",
+   "title": "Top 6 Load Balancing Algorithms Every Developer Should Know",
+   "description": "Get a Free System Design PDF with 158 pages by subscribing to our weekly newsletter: https://bytebytego.ck.page/subscribe ...",
+   "link": "https://www.youtube.com/watch?v=dBmxNsS3BGE",
+   "ranks": [
+    2
+   ]
+  },
+  "pd6C69lYHmc": {
+   "video_id": "pd6C69lYHmc",
+   "title": "🧠 System Design Fundamentals 7: ✅ Load Balancer Explained | Round Robin, Least Connections, IP Hash",
+   "description": "interviewWithBunny #systemdesign In this video, we will understand what a Load Balancer is, why it is used in system design, and ...",
+   "link": "https://www.youtube.com/watch?v=pd6C69lYHmc",
+   "ranks": [
+    3
+   ]
+  },
+  "qtfSe6gco94": {
+   "video_id": "qtfSe6gco94",
+   "title": "Least Connections, Weighted Least Connections and Least Response Time Algorithms Explained in Hindi",
+   "description": "Myself Shridhar Mankar an Engineer l YouTuber l Educational Blogger l Educator l Podcaster. My Aim- To Make Engineering ...",
+   "link": "https://www.youtube.com/watch?v=qtfSe6gco94",
+   "ranks": [
+    4
+   ]
+  },
+  "Ryj0JTFiZWE": {
+   "video_id": "Ryj0JTFiZWE",
+   "title": "Mastering Load Balancers  Round Robin, Least Connections, IP Hashing",
+   "description": "Mastering Load Balancing Algorithms: Round Robin, Least Connections & IP Hashing! - Have you ever wondered how websites ...",
+   "link": "https://www.youtube.com/watch?v=Ryj0JTFiZWE",
+   "ranks": [
+    5
+   ]
+  },
+  "USnb3E6mTeA": {
+   "video_id": "USnb3E6mTeA",
+   "title": "Round Robin and Weighted Round Robin Algorithms Explained in Hindi (Load Balancing) Cloud Computing",
+   "description": "Myself Shridhar Mankar an Engineer l YouTuber l Educational Blogger l Educator l Podcaster. My Aim- To Make Engineering ...",
+   "link": "https://www.youtube.com/watch?v=USnb3E6mTeA",
+   "ranks": [
+    6
+   ]
+  },
+  "PfGNe_W4cVQ": {
+   "video_id": "PfGNe_W4cVQ",
+   "title": "Load Balancing Algorithms Explained 🔥 | Round Robin vs Weighted vs Least Connections #loadbalancing",
+   "description": "Request kis server ko milegi? Load Balancer ke paas multiple servers hote hain, but how does it decide which server should ...",
+   "link": "https://www.youtube.com/watch?v=PfGNe_W4cVQ",
+   "ranks": [
+    7
+   ]
+  },
+  "FpLZ2_3sqAQ": {
+   "video_id": "FpLZ2_3sqAQ",
+   "title": "Ep 4: Load Balancing Algorithms Explained | Round Robin, Least Connections, IP Hash | Part 2",
+   "description": "Round Robin – Distribute requests sequentially across servers Weighted Round Robin – Send more traffic to powerful servers ...",
+   "link": "https://www.youtube.com/watch?v=FpLZ2_3sqAQ",
+   "ranks": [
+    8
+   ]
+  },
+  "k1YVM2q58-M": {
+   "video_id": "k1YVM2q58-M",
+   "title": "Load Balancer in System Design | Round Robin, Weighted RR, Least Connection &amp; IP Hash",
+   "description": "Part 15 of the System Design HLD series — Load Balancer explained from basics to advanced concepts. In this video, we'll ...",
+   "link": "https://www.youtube.com/watch?v=k1YVM2q58-M",
+   "ranks": [
+    9
+   ]
+  },
+  "oZFItaTq2oI": {
+   "video_id": "oZFItaTq2oI",
+   "title": "Load Balancer Health Checks I Lightboard Techtalk",
+   "description": "How does a load balancer know if an application is happy and available? What kinds of health checks do load balancers do to ...",
+   "link": "https://www.youtube.com/watch?v=oZFItaTq2oI",
+   "ranks": [
+    0
+   ]
+  },
+  "rSoj7PEvWFY": {
+   "video_id": "rSoj7PEvWFY",
+   "title": "How do I troubleshoot and fix failing health checks for Application Load Balancers?",
+   "description": "Skip directly to the demo: 0:24 For more details, see the Knowledge Center article associated with this video: ...",
+   "link": "https://www.youtube.com/watch?v=rSoj7PEvWFY",
+   "ranks": [
+    1
+   ]
+  },
+  "u76RiLEU0yA": {
+   "video_id": "u76RiLEU0yA",
+   "title": "Load Balancer Explained in 10 Minutes | L4 vs L7, Health Checks, Sticky Sessions &amp; System Design",
+   "description": "Ever wondered how websites like Amazon, Netflix, Google, and Flipkart handle millions of users without crashing? The answer ...",
+   "link": "https://www.youtube.com/watch?v=u76RiLEU0yA",
+   "ranks": [
+    2
+   ]
+  },
+  "bRDz6H1h0Po": {
+   "video_id": "bRDz6H1h0Po",
+   "title": "Health Checks &amp; Automatic Server Recovery | Java Load Balancer Part 2",
+   "description": "What happens when one of the backend servers behind a Load Balancer goes down? In the previous video, we built a basic Load ...",
+   "link": "https://www.youtube.com/watch?v=bRDz6H1h0Po",
+   "ranks": [
+    3
+   ]
+  },
+  "_MBxu7xK0YY": {
+   "video_id": "_MBxu7xK0YY",
+   "title": "AWS Web Server Setup, Load Balancer, Target Group, Health check",
+   "description": "AWS Web Server Setup | Load Balancer, Target Group & Health Check Explained ☁️   In this video, you'll learn how to set up a ...",
+   "link": "https://www.youtube.com/watch?v=_MBxu7xK0YY",
+   "ranks": [
+    4
+   ]
+  },
+  "UUeTQjEHoGw": {
+   "video_id": "UUeTQjEHoGw",
+   "title": "Google Cloud Load Balancing Part 2: Health Checks, URL Maps, Managed SSL, Cloud CDN &amp; Cloud Armor",
+   "description": "Google Cloud makes on the order of a billion load-balancing decisions every second. Part 2 of this series is the practical deep ...",
+   "link": "https://www.youtube.com/watch?v=UUeTQjEHoGw",
+   "ranks": [
+    5
+   ]
+  },
+  "192YG1_0Pcg": {
+   "video_id": "192YG1_0Pcg",
+   "title": "How to fix target group load balancer AWS - Health checks failed with these codes: 403",
+   "description": "i am creating application load balancer, and need to select target group. i create one (target group), and register one instance ...",
+   "link": "https://www.youtube.com/watch?v=192YG1_0Pcg",
+   "ranks": [
+    6
+   ]
+  },
+  "4SWwWIpi3E4": {
+   "video_id": "4SWwWIpi3E4",
+   "title": "How Load Balancers Use Health Checks in Distributed Systems",
+   "description": "In distributed systems, load balancers act like doctors for your servers, performing health checks to ensure they're available and ...",
+   "link": "https://www.youtube.com/watch?v=4SWwWIpi3E4",
+   "ranks": [
+    7
+   ]
+  },
+  "YtwpiRCedSc": {
+   "video_id": "YtwpiRCedSc",
+   "title": "AWS Load Balancer Masterclass: Complete Setup &amp; Demo - Part 19",
+   "description": "Udemy Course - AWS Networking Zero to Hero!   ▭▭▭▭▭▭ AWS Networking Masterclass!",
+   "link": "https://www.youtube.com/watch?v=YtwpiRCedSc",
+   "ranks": [
+    8
+   ]
+  },
+  "3pKJLTuYkr0": {
+   "video_id": "3pKJLTuYkr0",
+   "title": "13.11 AWS Application Load Balancer &amp; Target Groups | Health Check Failures! DevOps",
+   "description": "Are you preparing for IT campus placements and want to architect a production-grade Web Server Cluster? In this massive AWS ...",
+   "link": "https://www.youtube.com/watch?v=3pKJLTuYkr0",
+   "ranks": [
+    9
+   ]
+  },
+  "7zrOGssVPV0": {
+   "video_id": "7zrOGssVPV0",
+   "title": "Load Balancer Algorithms and Popular Solutions",
+   "description": "In systems operating under high traffic and high concurrency, selecting the right Load Balancer is critical. This video examines the ...",
+   "link": "https://www.youtube.com/watch?v=7zrOGssVPV0",
+   "ranks": [
+    0
+   ]
+  },
+  "wCa8iOxIZAM": {
+   "video_id": "wCa8iOxIZAM",
+   "title": "Cisco Quantum Summit 2026 - Day 2 - Quantum Computing Compiler: Bringing Network Awareness",
+   "description": "The Cisco Quantum Summit 2026 continued with an intensive focus on the intersection of networking and computation.",
+   "link": "https://www.youtube.com/watch?v=wCa8iOxIZAM",
+   "ranks": [
+    1
+   ]
+  },
+  "qaupWs_DcAI": {
+   "video_id": "qaupWs_DcAI",
+   "title": "Claude Certified Developer – Foundations (CCDV-F): Free 12-Hour Exam Prep Course",
+   "description": "Nearly 12 hours of exam prep for Claude Certified Developer – Foundations (CCDV-F), Anthropic's certification for developers ...",
+   "link": "https://www.youtube.com/watch?v=qaupWs_DcAI",
+   "ranks": [
+    2
+   ]
+  },
+  "qE-iBjHqBGc": {
+   "video_id": "qE-iBjHqBGc",
+   "title": "The Incredible Engineering of the 32-Pounder: WHEN THE BARREL BURST",
+   "description": "When a thirty-two-pounder barrel burst on a gun deck, three tons of cast iron became shrapnel: why did it happen?",
+   "link": "https://www.youtube.com/watch?v=qE-iBjHqBGc",
+   "ranks": [
+    3
+   ]
+  },
+  "4W1xSm2T1Ps": {
+   "video_id": "4W1xSm2T1Ps",
+   "title": "Operations Manager का क्या काम रहता है। Logistics Process| Param",
+   "description": "In this video I have discussed all roles and duties of a operations manager and those who are freshers and looking for a job this ...",
+   "link": "https://www.youtube.com/watch?v=4W1xSm2T1Ps",
+   "ranks": [
+    4
+   ]
+  },
+  "W1o_MSfUwmA": {
+   "video_id": "W1o_MSfUwmA",
+   "title": "2026 GCP Professional Machine Learning Engineer - 5 hour cram session",
+   "description": "This is a cram session for the Google Cloud Professional Machine Learning Engineer (PMLE) certification exam, covering many of ...",
+   "link": "https://www.youtube.com/watch?v=W1o_MSfUwmA",
+   "ranks": [
+    5
+   ]
+  },
+  "DrfS47iG-14": {
+   "video_id": "DrfS47iG-14",
+   "title": "I Awakened History&#39;s Weakest Class &quot;Master&quot;—4 Skills, But I Can Create SSS-Rank Servants",
+   "description": "animerecap #manhwaedit #anime #animerecap #manhwaedit #anime #animerecommendations #animerecommendations ...",
+   "link": "https://www.youtube.com/watch?v=DrfS47iG-14",
+   "ranks": [
+    6
+   ]
+  },
+  "30i6EDjy7H8": {
+   "video_id": "30i6EDjy7H8",
+   "title": "Rejected being a rich girl’s boyfriend, system gave me 5 billion‑worth assets.",
+   "description": "Chu Chen accidentally crashed into a Rolls-Royce. He had originally thought he would have to face an astronomical ...",
+   "link": "https://www.youtube.com/watch?v=30i6EDjy7H8",
+   "ranks": [
+    7
+   ]
+  },
+  "0NOER-Lle-0": {
+   "video_id": "0NOER-Lle-0",
+   "title": "Inventory Management  in 11 minutes",
+   "description": "What is Inventory Management? Inventory management is the process of overseeing, controlling, and tracking a company's goods ...",
+   "link": "https://www.youtube.com/watch?v=0NOER-Lle-0",
+   "ranks": [
+    8
+   ]
+  },
+  "0YybubwVSss": {
+   "video_id": "0YybubwVSss",
+   "title": "CCAR-P Practice Exam 8: 63 Claude Certified Architect – Professional Questions Explained",
+   "description": "Full-length practice exam 8 for the Claude Certified Architect – Professional (CCAR-P) certification: 63 original questions that ...",
+   "link": "https://www.youtube.com/watch?v=0YybubwVSss",
+   "ranks": [
+    9
+   ]
+  },
+  "TavIqNcnwSA": {
+   "video_id": "TavIqNcnwSA",
+   "title": "Lec-3: Load Balancer in System Design",
+   "description": "Learn the basics of Load Balancer in System Design and understand how it distributes traffic across multiple servers to improve ...",
+   "link": "https://www.youtube.com/watch?v=TavIqNcnwSA",
+   "ranks": [
+    1
+   ]
+  },
+  "y0RLt73vyX8": {
+   "video_id": "y0RLt73vyX8",
+   "title": "Load Balancing | Microservice",
+   "description": "Check out our courses: Mastering Agentic AI with Java : https://go.telusko.com/agentic-ai Coupon: TELUSKO10 (10% Discount) ...",
+   "link": "https://www.youtube.com/watch?v=y0RLt73vyX8",
+   "ranks": [
+    3
+   ]
+  },
+  "WRXlV_fOIv4": {
+   "video_id": "WRXlV_fOIv4",
+   "title": "Sewing machine thread bunching fixed. #sewing #silaisikhe #sewingtips #sewingtutorial #sewingmachine",
+   "description": "",
+   "link": "https://www.youtube.com/watch?v=WRXlV_fOIv4",
+   "ranks": [
+    4
+   ]
+  },
+  "ueVACGfrSDE": {
+   "video_id": "ueVACGfrSDE",
+   "title": "CloudHub Load Balancers Explained | Lightboard Series",
+   "description": "Welcome to MuleSoft Training! This video is an overview of CloudHub Load Balancers, which are useful for when you have ...",
+   "link": "https://www.youtube.com/watch?v=ueVACGfrSDE",
+   "ranks": [
+    5
+   ]
+  },
+  "jS-fs3lMRNE": {
+   "video_id": "jS-fs3lMRNE",
+   "title": "How load balancers prevent server crashes using real-time routing",
+   "description": "Dynamic traffic routing keeps high-traffic websites online when single servers get overwhelmed. See why naive round-robin ...",
+   "link": "https://www.youtube.com/watch?v=jS-fs3lMRNE",
+   "ranks": [
+    6
+   ]
+  },
+  "I6dpN0geIb4": {
+   "video_id": "I6dpN0geIb4",
+   "title": "How NGINX Handles MILLIONS of Requests With Just 1 Process 🔥",
+   "description": "nginx #SystemDesign #BackendEngineering #EventDriven #HighPerformanceServers #NodeJS #ScalableArchitecture ...",
+   "link": "https://www.youtube.com/watch?v=I6dpN0geIb4",
+   "ranks": [
+    7
+   ]
+  },
+  "GZG33-bSNRE": {
+   "video_id": "GZG33-bSNRE",
+   "title": "Balancing Requests instead of connections among threads",
+   "description": "",
+   "link": "https://www.youtube.com/watch?v=GZG33-bSNRE",
+   "ranks": [
+    8
+   ]
+  },
+  "8-fbUVZ6obA": {
+   "video_id": "8-fbUVZ6obA",
+   "title": "🔹 Load Balancer Explained in Telugu | Complete Guide 🔹",
+   "description": "Upcoming Batch Details: ==================== Registration Link: www.joindevops.com 🗓️ Demo: 20-April-2025, 10:30 AM ...",
+   "link": "https://www.youtube.com/watch?v=8-fbUVZ6obA",
+   "ranks": [
+    9
+   ]
+  },
+  "20gqJwY_kn0": {
+   "video_id": "20gqJwY_kn0",
+   "title": "Automatic threading and Tapping jig &amp; Fixtures with spring based system #automation",
+   "description": "Desclaimer: Copyright Disclaimer Under Section 107 of the Copyright Act 1976, allowance is made for 'Fair Use' for purposes ...",
+   "link": "https://www.youtube.com/watch?v=20gqJwY_kn0",
+   "ranks": [
+    1
+   ]
+  },
+  "V4Y3nomil1o": {
+   "video_id": "V4Y3nomil1o",
+   "title": "Load balancer with REAL EXAMPLES  in System Design 101 Series | @codewithease-byvarsha",
+   "description": "Join this channel to get access to perks: https://www.youtube.com/channel/UCiWsQBA97JYGntWs99ZrQmw/join ...",
+   "link": "https://www.youtube.com/watch?v=V4Y3nomil1o",
+   "ranks": [
+    2
+   ]
+  },
+  "cxfMaoN7gPA": {
+   "video_id": "cxfMaoN7gPA",
+   "title": "#258  🚀 What is NGINX? Load Balancer, Reverse Proxy &amp; More! 🌐🔥 #codewithkg",
+   "description": "",
+   "link": "https://www.youtube.com/watch?v=cxfMaoN7gPA",
+   "ranks": [
+    4
+   ]
+  },
+  "CIDNbzm9HhA": {
+   "video_id": "CIDNbzm9HhA",
+   "title": "Microservices Architecture in 3 Minutes 🔥",
+   "description": "Can you explain Microservices Architecture in just 3 minutes? In this quick visual guide, I'll draw a complete microservices ...",
+   "link": "https://www.youtube.com/watch?v=CIDNbzm9HhA",
+   "ranks": [
+    5
+   ]
+  },
+  "zNckMnCasGM": {
+   "video_id": "zNckMnCasGM",
+   "title": "Chapter-06: Client-Side Load Balancing using Spring Cloud LoadBalancer | Spring Microservices",
+   "description": "In this video we will discuss we will achieve next level of Microservices by performing client-side load balancing of our ...",
+   "link": "https://www.youtube.com/watch?v=zNckMnCasGM",
+   "ranks": [
+    6
+   ]
+  },
+  "q3717mJCRnk": {
+   "video_id": "q3717mJCRnk",
+   "title": "What is Load Balancer In Microservices || Client Side vs Server Side Load Balancer || Green Learner",
+   "description": "This video talks about the load balancer in the microservices architecture. Below are the topics - 1. What is the problem with ...",
+   "link": "https://www.youtube.com/watch?v=q3717mJCRnk",
+   "ranks": [
+    7
+   ]
+  },
+  "P2iZQpmhLCg": {
+   "video_id": "P2iZQpmhLCg",
+   "title": "How to Thread the Bobbin properly #shorts #tips #threads",
+   "description": "How to Thread the Bobbin properly #shorts #tips #threads Disclaimer: - Copyright Disclaimer: - Under section 107 of the copyright ...",
+   "link": "https://www.youtube.com/watch?v=P2iZQpmhLCg",
+   "ranks": [
+    9
+   ]
+  }
+ },
+ "details": {
+  "PmNOrh568Os": {
+   "contentDetails": {
+    "duration": "PT10M45S"
+   },
+   "statistics": {
+    "viewCount": "4571"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-GB",
+    "defaultLanguage": "en-GB"
+   }
+  },
+  "1TElJyRtws0": {
+   "contentDetails": {
+    "duration": "PT1M1S"
+   },
+   "statistics": {
+    "viewCount": "411"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "Piwr8TAy404": {
+   "contentDetails": {
+    "duration": "PT2M47S"
+   },
+   "statistics": {
+    "viewCount": "54"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "37sdnojPHOs": {
+   "contentDetails": {
+    "duration": "PT45M27S"
+   },
+   "statistics": {
+    "viewCount": "2172"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "wLdxC9gesBs": {
+   "contentDetails": {
+    "duration": "PT15M21S"
+   },
+   "statistics": {
+    "viewCount": "11209"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "D-b3UDRDFVQ": {
+   "contentDetails": {
+    "duration": "PT48M1S"
+   },
+   "statistics": {
+    "viewCount": "352"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "YM_dEeXmnuY": {
+   "contentDetails": {
+    "duration": "PT1H20M28S"
+   },
+   "statistics": {
+    "viewCount": "17666"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "Qe3X7pEhTbE": {
+   "contentDetails": {
+    "duration": "PT23M39S"
+   },
+   "statistics": {
+    "viewCount": "19"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "en"
+   }
+  },
+  "8e5NmI4WGQY": {
+   "contentDetails": {
+    "duration": "PT54S"
+   },
+   "statistics": {
+    "viewCount": "139"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "iv4s0uBe_UA": {
+   "contentDetails": {
+    "duration": "PT7S"
+   },
+   "statistics": {
+    "viewCount": "483"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "UDyVEOM6wBM": {
+   "contentDetails": {
+    "duration": "PT34M5S"
+   },
+   "statistics": {
+    "viewCount": "214"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "Y6njDHeNePg": {
+   "contentDetails": {
+    "duration": "PT9M13S"
+   },
+   "statistics": {
+    "viewCount": "3087"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "EALqTv2Oh6E": {
+   "contentDetails": {
+    "duration": "PT4M33S"
+   },
+   "statistics": {
+    "viewCount": "272"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "CAG8uUlYqBk": {
+   "contentDetails": {
+    "duration": "PT7M57S"
+   },
+   "statistics": {
+    "viewCount": "869"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "tWxv4GK_uk4": {
+   "contentDetails": {
+    "duration": "PT8M9S"
+   },
+   "statistics": {
+    "viewCount": "47808"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "en-GB"
+   }
+  },
+  "atWt8OInH5A": {
+   "contentDetails": {
+    "duration": "PT3M34S"
+   },
+   "statistics": {
+    "viewCount": "512"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "j6tVrBlRb_s": {
+   "contentDetails": {
+    "duration": "PT3M3S"
+   },
+   "statistics": {
+    "viewCount": "1481"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "zrV52noCyXE": {
+   "contentDetails": {
+    "duration": "PT48S"
+   },
+   "statistics": {
+    "viewCount": "1168"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "es",
+    "defaultLanguage": "es"
+   }
+  },
+  "dkC2fRaYX4k": {
+   "contentDetails": {
+    "duration": "PT8S"
+   },
+   "statistics": {
+    "viewCount": "33264"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "-lEAqcQrmbo": {
+   "contentDetails": {
+    "duration": "PT3M24S"
+   },
+   "statistics": {
+    "viewCount": "589"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-IN",
+    "defaultLanguage": "en"
+   }
+  },
+  "ZcKt5FYd3bU": {
+   "contentDetails": {
+    "duration": "PT18M4S"
+   },
+   "statistics": {
+    "viewCount": "88825"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "4aVm7fBgKEk": {
+   "contentDetails": {
+    "duration": "PT2M54S"
+   },
+   "statistics": {
+    "viewCount": "103"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-US",
+    "defaultLanguage": "en"
+   }
+  },
+  "oczo0ZCdczQ": {
+   "contentDetails": {
+    "duration": "PT15M6S"
+   },
+   "statistics": {
+    "viewCount": "16829"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "en"
+   }
+  },
+  "iS6UJcWQhis": {
+   "contentDetails": {
+    "duration": "PT1M52S"
+   },
+   "statistics": {
+    "viewCount": "11778"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-GB",
+    "defaultLanguage": "en"
+   }
+  },
+  "wJ8vdl4JBqY": {
+   "contentDetails": {
+    "duration": "PT12M23S"
+   },
+   "statistics": {
+    "viewCount": "3"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "lX3NAVjRFw8": {
+   "contentDetails": {
+    "duration": "PT11M17S"
+   },
+   "statistics": {
+    "viewCount": "4362"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "en"
+   }
+  },
+  "6lHvks6R6cI": {
+   "contentDetails": {
+    "duration": "PT13M44S"
+   },
+   "statistics": {
+    "viewCount": "75404"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "Ep-36Lpqngc": {
+   "contentDetails": {
+    "duration": "PT12M53S"
+   },
+   "statistics": {
+    "viewCount": "268"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "3K9QqjDmwCE": {
+   "contentDetails": {
+    "duration": "PT4M25S"
+   },
+   "statistics": {
+    "viewCount": "18"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-US",
+    "defaultLanguage": "en"
+   }
+  },
+  "CK7ZgFFtNV0": {
+   "contentDetails": {
+    "duration": "PT13M16S"
+   },
+   "statistics": {
+    "viewCount": "6143"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "en"
+   }
+  },
+  "pmXYotxsidU": {
+   "contentDetails": {
+    "duration": "PT9M30S"
+   },
+   "statistics": {
+    "viewCount": "688"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "eR0MzSs9O1w": {
+   "contentDetails": {
+    "duration": "PT26M6S"
+   },
+   "statistics": {
+    "viewCount": "3375"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "sCR3SAVdyCc": {
+   "contentDetails": {
+    "duration": "PT8M22S"
+   },
+   "statistics": {
+    "viewCount": "345374"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-US",
+    "defaultLanguage": "en"
+   }
+  },
+  "nIz5d_5seuo": {
+   "contentDetails": {
+    "duration": "PT40M45S"
+   },
+   "statistics": {
+    "viewCount": "232"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-US",
+    "defaultLanguage": "en"
+   }
+  },
+  "zSMFaaBori4": {
+   "contentDetails": {
+    "duration": "PT6M53S"
+   },
+   "statistics": {
+    "viewCount": "84"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "FZQIJzqE7Bc": {
+   "contentDetails": {
+    "duration": "PT11M5S"
+   },
+   "statistics": {
+    "viewCount": "132"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "-dIdn8J2jws": {
+   "contentDetails": {
+    "duration": "PT4M40S"
+   },
+   "statistics": {
+    "viewCount": "853"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-GB",
+    "defaultLanguage": "en"
+   }
+  },
+  "APn80XKag3o": {
+   "contentDetails": {
+    "duration": "PT3M53S"
+   },
+   "statistics": {
+    "viewCount": "47"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "i9Jq8BDEF_A": {
+   "contentDetails": {
+    "duration": "PT25M10S"
+   },
+   "statistics": {
+    "viewCount": "169"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "c0Ah-nNBTIU": {
+   "contentDetails": {
+    "duration": "PT17M35S"
+   },
+   "statistics": {
+    "viewCount": "9416"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "WnzgKwrrY0g": {
+   "contentDetails": {
+    "duration": "PT5M11S"
+   },
+   "statistics": {
+    "viewCount": "494"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "0suOpFXXAj0": {
+   "contentDetails": {
+    "duration": "PT4M42S"
+   },
+   "statistics": {
+    "viewCount": "736"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-IN",
+    "defaultLanguage": "en-IN"
+   }
+  },
+  "dBmxNsS3BGE": {
+   "contentDetails": {
+    "duration": "PT5M18S"
+   },
+   "statistics": {
+    "viewCount": "175413"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-US",
+    "defaultLanguage": "en"
+   }
+  },
+  "pd6C69lYHmc": {
+   "contentDetails": {
+    "duration": "PT27M57S"
+   },
+   "statistics": {
+    "viewCount": "1974"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-IN",
+    "defaultLanguage": "en-IN"
+   }
+  },
+  "qtfSe6gco94": {
+   "contentDetails": {
+    "duration": "PT6M35S"
+   },
+   "statistics": {
+    "viewCount": "15077"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "Ryj0JTFiZWE": {
+   "contentDetails": {
+    "duration": "PT7M15S"
+   },
+   "statistics": {
+    "viewCount": "327"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "USnb3E6mTeA": {
+   "contentDetails": {
+    "duration": "PT6M43S"
+   },
+   "statistics": {
+    "viewCount": "29589"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "PfGNe_W4cVQ": {
+   "contentDetails": {
+    "duration": "PT1M35S"
+   },
+   "statistics": {
+    "viewCount": "1012"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "FpLZ2_3sqAQ": {
+   "contentDetails": {
+    "duration": "PT2M59S"
+   },
+   "statistics": {
+    "viewCount": "138"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "k1YVM2q58-M": {
+   "contentDetails": {
+    "duration": "PT27M17S"
+   },
+   "statistics": {
+    "viewCount": "246"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "en"
+   }
+  },
+  "oZFItaTq2oI": {
+   "contentDetails": {
+    "duration": "PT7M22S"
+   },
+   "statistics": {
+    "viewCount": "4474"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "rSoj7PEvWFY": {
+   "contentDetails": {
+    "duration": "PT7M35S"
+   },
+   "statistics": {
+    "viewCount": "49158"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "u76RiLEU0yA": {
+   "contentDetails": {
+    "duration": "PT10M29S"
+   },
+   "statistics": {
+    "viewCount": "128"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "bRDz6H1h0Po": {
+   "contentDetails": {
+    "duration": "PT24M56S"
+   },
+   "statistics": {
+    "viewCount": "1054"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-IN",
+    "defaultLanguage": "en-IN"
+   }
+  },
+  "_MBxu7xK0YY": {
+   "contentDetails": {
+    "duration": "PT8M50S"
+   },
+   "statistics": {
+    "viewCount": "38"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-IN",
+    "defaultLanguage": "en-IN"
+   }
+  },
+  "UUeTQjEHoGw": {
+   "contentDetails": {
+    "duration": "PT4M56S"
+   },
+   "statistics": {
+    "viewCount": "93"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "192YG1_0Pcg": {
+   "contentDetails": {
+    "duration": "PT6M21S"
+   },
+   "statistics": {
+    "viewCount": "11441"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "4SWwWIpi3E4": {
+   "contentDetails": {
+    "duration": "PT27S"
+   },
+   "statistics": {
+    "viewCount": "2163"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "YtwpiRCedSc": {
+   "contentDetails": {
+    "duration": "PT21M13S"
+   },
+   "statistics": {
+    "viewCount": "17842"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-US",
+    "defaultLanguage": "en"
+   }
+  },
+  "3pKJLTuYkr0": {
+   "contentDetails": {
+    "duration": "PT16M33S"
+   },
+   "statistics": {
+    "viewCount": "94"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "en"
+   }
+  },
+  "7zrOGssVPV0": {
+   "contentDetails": {
+    "duration": "PT8M20S"
+   },
+   "statistics": {
+    "viewCount": "26"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "tr",
+    "defaultLanguage": "en-US"
+   }
+  },
+  "wCa8iOxIZAM": {
+   "contentDetails": {
+    "duration": "PT5H17M12S"
+   },
+   "statistics": {
+    "viewCount": "514"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "qaupWs_DcAI": {
+   "contentDetails": {
+    "duration": "PT11H53M3S"
+   },
+   "statistics": {
+    "viewCount": "28"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "qE-iBjHqBGc": {
+   "contentDetails": {
+    "duration": "PT26M3S"
+   },
+   "statistics": {
+    "viewCount": "29"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "4W1xSm2T1Ps": {
+   "contentDetails": {
+    "duration": "PT7M58S"
+   },
+   "statistics": {
+    "viewCount": "133350"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "en"
+   }
+  },
+  "W1o_MSfUwmA": {
+   "contentDetails": {
+    "duration": "PT5H17M18S"
+   },
+   "statistics": {
+    "viewCount": "1412"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-US",
+    "defaultLanguage": "en-US"
+   }
+  },
+  "DrfS47iG-14": {
+   "contentDetails": {
+    "duration": "PT7H55M57S"
+   },
+   "statistics": {
+    "viewCount": "56220"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-US",
+    "defaultLanguage": "en"
+   }
+  },
+  "30i6EDjy7H8": {
+   "contentDetails": {
+    "duration": "PT9H50M45S"
+   },
+   "statistics": {
+    "viewCount": "109"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-US",
+    "defaultLanguage": "en"
+   }
+  },
+  "0NOER-Lle-0": {
+   "contentDetails": {
+    "duration": "PT11M36S"
+   },
+   "statistics": {
+    "viewCount": "552613"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-US",
+    "defaultLanguage": "en"
+   }
+  },
+  "0YybubwVSss": {
+   "contentDetails": {
+    "duration": "PT1H23M24S"
+   },
+   "statistics": {
+    "viewCount": "8"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "TavIqNcnwSA": {
+   "contentDetails": {
+    "duration": "PT9M26S"
+   },
+   "statistics": {
+    "viewCount": "22297"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "hi",
+    "defaultLanguage": "en"
+   }
+  },
+  "y0RLt73vyX8": {
+   "contentDetails": {
+    "duration": "PT5M59S"
+   },
+   "statistics": {
+    "viewCount": "73667"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "WRXlV_fOIv4": {
+   "contentDetails": {
+    "duration": "PT20S"
+   },
+   "statistics": {
+    "viewCount": "356314"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "ueVACGfrSDE": {
+   "contentDetails": {
+    "duration": "PT4M28S"
+   },
+   "statistics": {
+    "viewCount": "6989"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "jS-fs3lMRNE": {
+   "contentDetails": {
+    "duration": "PT1M15S"
+   },
+   "statistics": {
+    "viewCount": "36"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "I6dpN0geIb4": {
+   "contentDetails": {
+    "duration": "PT9M55S"
+   },
+   "statistics": {
+    "viewCount": "331734"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "GZG33-bSNRE": {
+   "contentDetails": {
+    "duration": "PT44S"
+   },
+   "statistics": {
+    "viewCount": "7120"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "8-fbUVZ6obA": {
+   "contentDetails": {
+    "duration": "PT1M4S"
+   },
+   "statistics": {
+    "viewCount": "15877"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-GB",
+    "defaultLanguage": "en"
+   }
+  },
+  "20gqJwY_kn0": {
+   "contentDetails": {
+    "duration": "PT7S"
+   },
+   "statistics": {
+    "viewCount": "4811305"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "V4Y3nomil1o": {
+   "contentDetails": {
+    "duration": "PT15M5S"
+   },
+   "statistics": {
+    "viewCount": "525"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en-IN"
+   }
+  },
+  "cxfMaoN7gPA": {
+   "contentDetails": {
+    "duration": "PT1M44S"
+   },
+   "statistics": {
+    "viewCount": "5642"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "te",
+    "defaultLanguage": "en"
+   }
+  },
+  "CIDNbzm9HhA": {
+   "contentDetails": {
+    "duration": "PT2M45S"
+   },
+   "statistics": {
+    "viewCount": "116989"
+   },
+   "snippet": {
+    "defaultLanguage": "en"
+   }
+  },
+  "zNckMnCasGM": {
+   "contentDetails": {
+    "duration": "PT59M41S"
+   },
+   "statistics": {
+    "viewCount": "1341"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "q3717mJCRnk": {
+   "contentDetails": {
+    "duration": "PT10M41S"
+   },
+   "statistics": {
+    "viewCount": "20780"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en",
+    "defaultLanguage": "en"
+   }
+  },
+  "P2iZQpmhLCg": {
+   "contentDetails": {
+    "duration": "PT32S"
+   },
+   "statistics": {
+    "viewCount": "7111734"
+   },
+   "snippet": {
+    "defaultAudioLanguage": "en-IN",
+    "defaultLanguage": "en-IN"
+   }
+  }
+ },
+ "videos": [
+  {
+   "video_id": "sCR3SAVdyCc",
+   "title": "What is a Load Balancer?",
+   "description": "Learn more about load balancers → https://ibm.biz/Bdfhdf Check out IBM Cloud load balancers → https://ibm.biz/BdfhXa Check ...",
+   "link": "https://www.youtube.com/watch?v=sCR3SAVdyCc",
+   "views": 345374
+  },
+  {
+   "video_id": "YM_dEeXmnuY",
+   "title": "Load Balancers: Algorithms and Design",
+   "description": "This is a live video showing how a load balancer like Nginx is designed. 00:00 QnA 17:00 Coding 58:00 More QnA Code: ...",
+   "link": "https://www.youtube.com/watch?v=YM_dEeXmnuY",
+   "views": 17666
+  },
+  {
+   "video_id": "PmNOrh568Os",
+   "title": "System Design: Load Balancing | How Load Balancers work",
+   "description": "System Design -- Load Balancing | How Load Balancers work. Features of Load Balancer: * Distribute load/requests across ...",
+   "link": "https://www.youtube.com/watch?v=PmNOrh568Os",
+   "views": 4571
+  },
+  {
+   "video_id": "oZFItaTq2oI",
+   "title": "Load Balancer Health Checks I Lightboard Techtalk",
+   "description": "How does a load balancer know if an application is happy and available? What kinds of health checks do load balancers do to ...",
+   "link": "https://www.youtube.com/watch?v=oZFItaTq2oI",
+   "views": 4474
+  },
+  {
+   "video_id": "dBmxNsS3BGE",
+   "title": "Top 6 Load Balancing Algorithms Every Developer Should Know",
+   "description": "Get a Free System Design PDF with 158 pages by subscribing to our weekly newsletter: https://bytebytego.ck.page/subscribe ...",
+   "link": "https://www.youtube.com/watch?v=dBmxNsS3BGE",
+   "views": 175413
+  }
+ ]
+}

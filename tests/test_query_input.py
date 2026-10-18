@@ -20,6 +20,22 @@ def test_rank_chunks_orders_by_score_and_caps_at_ten():
     assert ranked[0]["chunk"] == "chunk 14"  # highest score survives the cap
 
 
+def test_coverage_select_skips_short_fragments_and_spreads_across_keywords():
+    words = " ".join(["word"] * 25)  # long enough to count as real content
+    keywords = {"a": {"score": 1.0, "freq": 5}, "b": {"score": 1.0, "freq": 3}, "c": {"score": 1.0, "freq": 1}}
+    meta = lambda *ks: [{"keyword": k, "score": 1.0, "freq": 1} for k in ks]
+    chunk_data = [
+        {"context": "table header", "meta": meta("a", "b", "c")},      # too short: dropped
+        {"context": words + " 1", "meta": meta("a", "b")},
+        {"context": words + " 2", "meta": meta("a")},                  # adds nothing new after chunk 1
+        {"context": words + " 3", "meta": meta("c")},
+    ]
+
+    picked = qi.rank_chunks(keywords, chunk_data, scoring="coverage")
+
+    assert [p["chunk"][-1] for p in picked] == ["1", "3"]
+
+
 def test_cosine_sim_identical_vectors_is_one():
     v = np.array([1.0, 2.0, 3.0])
     assert qi.cosine_sim(v, v) == pytest.approx(1.0)
@@ -35,8 +51,8 @@ class _FakeNlp:
     def __init__(self, vectors):
         self._vectors = vectors
 
-    def __call__(self, text):
-        return type("Doc", (), {"vector": np.array(self._vectors[text])})()
+    def pipe(self, texts, **kwargs):
+        return (type("Doc", (), {"vector": np.array(self._vectors[t])})() for t in texts)
 
 
 def test_semantic_dedup_absorbs_similar_chunks_keeping_higher_ranked():
